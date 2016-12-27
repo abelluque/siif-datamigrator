@@ -9,9 +9,14 @@
 	template="template/ui.xhtml">
 	<ui:define name="body">
 		<hr />
-		<h4>Import Database Info</h4>
+		<h4>Data Migrator :: Panel de Control</h4>
+		<h:form id="mappingsForm">
+			<p:commandButton id="importAction" value="Regenerar mapeos" action="#{loginController.generateMappings}"/>
+		</h:form>
 		<h:form id="importerForm">
 			<p:commandButton id="importAction" value="Importar" action="#{loginController.importDbInfo}"/>
 		</h:form>
+	
 	</ui:define>
+	
 </ui:composition>

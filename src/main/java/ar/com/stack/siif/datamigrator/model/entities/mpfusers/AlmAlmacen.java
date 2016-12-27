@@ -4,104 +4,103 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
-
 /**
  * The persistent class for the alm_almacenes database table.
  * 
  */
-// @Entity
-// @Table(name="alm_almacenes")
-@NamedQuery(name="AlmAlmacen.findAll", query="SELECT a FROM AlmAlmacen a")
+@Entity
+@Table(name = "alm_almacenes", schema = "mpfusers")
+@NamedQuery(name = "AlmAlmacen.findAll", query = "SELECT a FROM AlmAlmacen a")
 public class AlmAlmacen implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="aal_codigo")
+	@Column(name = "aal_codigo")
 	private int aalCodigo;
 
-	@Column(name="aal_actorjuscaba")
+	@Column(name = "aal_actorjuscaba")
 	private String aalActorjuscaba;
 
-	@Column(name="aal_asignacion_ef_contador_salteos")
+	@Column(name = "aal_asignacion_ef_contador_salteos")
 	private int aalAsignacionEfContadorSalteos;
 
-	@Column(name="aal_asignacion_ef_orden")
+	@Column(name = "aal_asignacion_ef_orden")
 	private int aalAsignacionEfOrden;
 
-	@Column(name="aal_asignacion_ef_salteos")
+	@Column(name = "aal_asignacion_ef_salteos")
 	private int aalAsignacionEfSalteos;
 
-	@Column(name="aal_categoria")
+	@Column(name = "aal_categoria")
 	private String aalCategoria;
 
-	@Column(name="aal_clavearbol")
+	@Column(name = "aal_clavearbol")
 	private String aalClavearbol;
 
-	@Column(name="aal_direccion")
+	@Column(name = "aal_direccion")
 	private String aalDireccion;
 
-	@Column(name="aal_edificio")
+	@Column(name = "aal_edificio")
 	private String aalEdificio;
 
-	@Column(name="aal_especializacion")
+	@Column(name = "aal_especializacion")
 	private String aalEspecializacion;
 
-	@Column(name="aal_fax")
+	@Column(name = "aal_fax")
 	private String aalFax;
 
-	@Column(name="aal_nivel")
+	@Column(name = "aal_nivel")
 	private int aalNivel;
 
-	@Column(name="aal_nombre")
+	@Column(name = "aal_nombre")
 	private String aalNombre;
 
-	@Column(name="aal_nota")
+	@Column(name = "aal_nota")
 	private String aalNota;
 
-	@Column(name="aal_padre")
+	@Column(name = "aal_padre")
 	private int aalPadre;
 
-	@Column(name="aal_pmactivo")
+	@Column(name = "aal_pmactivo")
 	private String aalPmactivo;
 
-	@Column(name="aal_pmuid")
+	@Column(name = "aal_pmuid")
 	private String aalPmuid;
 
-	@Column(name="aal_status")
+	@Column(name = "aal_status")
 	private String aalStatus;
 
-	@Column(name="aal_telefono")
+	@Column(name = "aal_telefono")
 	private String aalTelefono;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="aal_tstamp")
+	@Column(name = "aal_tstamp")
 	private Date aalTstamp;
 
-	@Column(name="acc_payroll")
+	@Column(name = "acc_payroll")
 	private int accPayroll;
 
-	@Column(name="dep_email")
+	@Column(name = "dep_email")
 	private String depEmail;
 
-	@Column(name="dep_medico")
+	@Column(name = "dep_medico")
 	private String depMedico;
 
-	@Column(name="dep_tipo")
+	@Column(name = "dep_tipo")
 	private String depTipo;
 
-	@Column(name="dep_zona")
+	@Column(name = "dep_zona")
 	private String depZona;
 
-	@Column(name="occ_codigo")
+	@Column(name = "occ_codigo")
 	private int occCodigo;
 
-	@Column(name="use_code")
+	@Column(name = "use_code")
 	private String useCode;
 
-	@Column(name="use_code_auditoria")
+	@Column(name = "use_code_auditoria")
 	private String useCodeAuditoria;
 
-	@Column(name="use_jefe")
+	@Column(name = "use_jefe")
 	private String useJefe;
 
 	public AlmAlmacen() {

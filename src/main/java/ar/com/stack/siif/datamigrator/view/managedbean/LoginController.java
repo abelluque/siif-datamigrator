@@ -33,6 +33,14 @@ public class LoginController implements Serializable {
 	private List<String> mpfusersTables = new ArrayList<>();
 	private List<String> kiwiTables = new ArrayList<>();
 
+	public LoginController() {
+		
+		super();
+		appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+		dataImporter = (DataImporterServiceImpl) appContext.getBean("dataImporterDao");
+
+	}
+
 	public String getUserName() {
 		return userName;
 	}
@@ -50,8 +58,6 @@ public class LoginController implements Serializable {
 	}
 
 	public String goToHome() {
-
-		// TODO implemet login method
 		return "succes";
 	}
 
@@ -69,9 +75,6 @@ public class LoginController implements Serializable {
 	 */
 	public String importDbInfo() {
 
-		appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-		dataImporter = (DataImporterServiceImpl) appContext.getBean("dataImporterDao");
-
 		importData("mpfusers");
 		//importData("kiwi");
 
@@ -87,24 +90,33 @@ public class LoginController implements Serializable {
 			String tableName = (String) tablaDesc[0];
 			mpfusersTables.add(tableName);
 		}
-		
+
 		System.out.println("Listado de tablas encontradas para " + dbName);
 		int i = 0;
 		for (String mpfusersTable : mpfusersTables) {
 			System.out.println(++i + ") " + mpfusersTable);
 		}
 		System.out.println("Total:   " + i + " tablas en '" + dbName + "'.");
-	
-		
-//		SOLO PRUEBO CON LA TABLA ´aux_apellidos´ 
-//		for (String tableName : mpfusersTables) {
-//			dataImporter.importTableData(dbName, tableName);
-//		}
-		
-		dataImporter.importTableData("mpfusers", "aux_apellidos");
-		dataImporter.importTableData("mpfusers", "avi_servers");
-		dataImporter.importTableData("mpfusers", "cat_value_list");
-		
-		
+
+		//		SOLO PRUEBO CON LA TABLA ´aux_apellidos´ 
+		//		for (String tableName : mpfusersTables) {
+		//			dataImporter.importTableData(dbName, tableName);
+		//		}
+
+		//		dataImporter.importTableData("mpfusers", "aux_apellidos");
+		//		dataImporter.importTableData("mpfusers", "avi_servers");
+		//		dataImporter.importTableData("mpfusers", "cat_value_list");
+
+		dataImporter.importTableData("mpfusers", "alm_almacenes");
+
+	}
+
+	public String generateMappings() {
+
+		System.out.println("Regenerando mapeos tablas/entities...");
+
+		dataImporter.generateTableMappings();
+
+		return null;
 	}
 }

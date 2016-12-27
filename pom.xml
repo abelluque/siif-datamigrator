@@ -1,19 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>ar.com.stack</groupId>
-  <artifactId>siif-datamigrator</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+	<groupId>ar.com.stack</groupId>
+	<artifactId>siif-datamigrator</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 
-  <name>DataMigrator for SIIF</name>
-  <url>http://maven.apache.org</url>
+	<name>DataMigrator for SIIF</name>
+	<url>http://maven.apache.org</url>
 
-<build>
+	<build>
 
-		<finalName>siif</finalName>
+		<finalName>datamigrator</finalName>
 
 		<plugins>
 			<plugin>
@@ -114,6 +114,14 @@
 			<artifactId>persistence-utils</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
+		<!-- Reflection Utils -->
+		<dependency>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+			<version>0.9.9-RC1</version>
+		</dependency>
+
 	</dependencies>
-	
+
 </project>
