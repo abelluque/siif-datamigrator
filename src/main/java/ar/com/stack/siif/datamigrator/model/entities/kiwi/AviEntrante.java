@@ -4,50 +4,49 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
-
 /**
  * The persistent class for the avi_entrantes database table.
  * 
  */
-// @Entity
-// @Table(name="avi_entrantes")
-@NamedQuery(name="AviEntrante.findAll", query="SELECT a FROM AviEntrante a")
+@Entity
+@Table(name = "avi_entrantes")
+@NamedQuery(name = "AviEntrante.findAll", query = "SELECT a FROM AviEntrante a")
 public class AviEntrante implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="ave_key")
+	@Column(name = "ave_key")
 	private int aveKey;
 
-	@Column(name="ave_attachments")
+	@Column(name = "ave_attachments")
 	private String aveAttachments;
 
-	@Column(name="ave_body")
+	@Column(name = "ave_body")
 	private String aveBody;
 
-	@Column(name="ave_body_alt")
+	@Column(name = "ave_body_alt")
 	private String aveBodyAlt;
 
-	@Column(name="ave_from")
+	@Column(name = "ave_from")
 	private String aveFrom;
 
-	@Column(name="ave_headers")
+	@Column(name = "ave_headers")
 	private String aveHeaders;
 
-	@Column(name="ave_status")
+	@Column(name = "ave_status")
 	private String aveStatus;
 
-	@Column(name="ave_subject")
+	@Column(name = "ave_subject")
 	private String aveSubject;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="ave_tstamp")
+	@Column(name = "ave_tstamp")
 	private Date aveTstamp;
 
-	@Column(name="avm_key")
+	@Column(name = "avm_key")
 	private int avmKey;
 
-	@Column(name="avs_code")
+	@Column(name = "avs_code")
 	private int avsCode;
 
 	public AviEntrante() {

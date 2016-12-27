@@ -17,7 +17,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "Table_map", schema = "siif")
+@Table(name = "Tables_mappings", schema = "siif")
 public class TableMap implements Serializable {
 
 	/**
@@ -44,12 +44,10 @@ public class TableMap implements Serializable {
 	public TableMap() {
 	}
 
-	public TableMap(Long id, Date creationDate, Date modificationDate, String dbName, String tableName,
-			String className, String packageName) {
+	public TableMap(String dbName, String tableName, String className) {
 		super();
-		this.id = id;
-		this.creationDate = creationDate;
-		this.modificationDate = modificationDate;
+		this.creationDate = new Date();
+		this.modificationDate = new Date();
 		this.dbName = dbName;
 		this.tableName = tableName;
 		this.className = className;

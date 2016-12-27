@@ -111,6 +111,10 @@ public class LoginController implements Serializable {
 
 	}
 
+	/**
+	 * Genera el mapeo entre Tablas y Entidades, para persistirlo en SIIF.TABLES_MAPPINGS
+	 * @return
+	 */
 	public String generateMappings() {
 
 		System.out.println("Regenerando mapeos tablas/entities...");

@@ -43,12 +43,22 @@ public class DataImporterServiceImpl {
 	private Map<String, String> mpfUsersMappedClasses;
 	private Map<String, String> kiwiMappedClasses;
 	
-	public static Map<String, String> entityMappings = new HashMap<String, String>();
+	public static Map<String, String> mpfUsersEntityMappings;
+	public static Map<String, String> kiwiEntityMappings;
 
 
 	public DataImporterServiceImpl() {
 
 		initMappedClasses();
+		
+		initEntityMappings();
+	}
+
+	private void initEntityMappings() {
+
+		mpfUsersEntityMappings = new HashMap<String, String>();
+		kiwiEntityMappings = new HashMap<String, String>();
+		
 	}
 
 	/**
@@ -260,21 +270,31 @@ public class DataImporterServiceImpl {
 	 */
 	public void generateTableMappings() {
 
-		Reflections reff = new Reflections("ar.com.stack.siif.datamigrator.model.entities");
+		// Primero genero los mapeos de MPF_USERS.
+		Reflections reff = new Reflections(MPF_USERS_ENTITIES_PACKAGE_NAME);
 		Set<Class<?>> myEntities = reff.getTypesAnnotatedWith(javax.persistence.Entity.class);
 
 		for (Class<?> entityClass : myEntities) {
-			createEntityMappings(entityClass);
+			createEntityMappings(DB_NAME_MPF_USERS, entityClass);
 		}
 
-		System.out.println("\nMapeo Final... ");
-		for (Map.Entry<String, String> entry : entityMappings.entrySet()) {
-			System.out.println("\tTable=" + entry.getKey() + ", \tEntity=" + entry.getValue());
+		// Primero genero los mapeos de KIWI.
+		reff = new Reflections(KIWI_ENTITIES_PACKAGE_NAME);
+		myEntities = reff.getTypesAnnotatedWith(javax.persistence.Entity.class);
+
+		for (Class<?> entityClass : myEntities) {
+			createEntityMappings(DB_NAME_KIWI, entityClass);
 		}
 
+		
+		persistEntityMappings();
 	}
 	
-	private static void createEntityMappings(Class entityClass) {
+	/**
+	 * Genera los mapeos según los valores definidos en las Annotations.
+	 * @param dbName TODO
+	 */
+	private void createEntityMappings(String dbName, Class entityClass) {
 
 		try {
 			for (Annotation annotation : entityClass.getAnnotations()) {
@@ -287,7 +307,12 @@ public class DataImporterServiceImpl {
 						if ("name".equals(method.getName())) {
 							Object value = method.invoke(annotation, (Object[]) null);
 
-							entityMappings.put(value.toString(), entityClass.getCanonicalName());
+							if (DB_NAME_MPF_USERS.equals(dbName)) {
+								mpfUsersEntityMappings.put(value.toString(), entityClass.getCanonicalName());
+							
+							} else {
+								kiwiEntityMappings.put(value.toString(), entityClass.getCanonicalName());
+							}
 						}
 					}
 				}
@@ -296,6 +321,36 @@ public class DataImporterServiceImpl {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	/** 
+	 * Persiste el mapeo de Tablas/Entities 
+	 */
+	private void persistEntityMappings() {
+
+		System.out.println("\nMapeo Final... ");
+		TableMap currentMapping;
+		
+		for (Map.Entry<String, String> entry : mpfUsersEntityMappings.entrySet()) {
+			System.out.println("\tTable=" + entry.getKey() + ", \tEntity=" + entry.getValue());
+			
+			currentMapping = new TableMap(DB_NAME_MPF_USERS, entry.getKey(), entry.getValue());
+
+			
+			// HAY QUE HACER UNA BUSQUEDA ANTES DEL MERGE, PORQUE TERMINA HACIENDO UN 'INSERT'.
+			siifEntityManager.merge(currentMapping);
+		}
+		
+		
+		for (Map.Entry<String, String> entry : kiwiEntityMappings.entrySet()) {
+			System.out.println("\tTable=" + entry.getKey() + ", \tEntity=" + entry.getValue());
+			
+			// HAY QUE HACER UNA BUSQUEDA ANTES DEL MERGE, PORQUE TERMINA HACIENDO UN 'INSERT'.
+			currentMapping = new TableMap(DB_NAME_KIWI, entry.getKey(), entry.getValue());
+			siifEntityManager.merge(currentMapping);
+		}
+		
+		
 	}
 
 }
