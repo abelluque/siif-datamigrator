@@ -9,7 +9,9 @@ import javax.faces.bean.ViewScoped;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import ar.com.stack.siif.datamigrator.model.DataImporterServiceImpl;
+import ar.com.stack.siif.datamigrator.model.services.DataImporterService;
+import ar.com.stack.siif.datamigrator.model.services.DataImporterServiceImpl;
+import ar.com.stack.siif.datamigrator.model.services.TableMappingsService;
 
 /**
  * 
@@ -28,16 +30,21 @@ public class LoginController implements Serializable {
 
 	// DATA IMPORTER
 	private ClassPathXmlApplicationContext appContext;
-	private DataImporterServiceImpl dataImporter;
+
+	private DataImporterService dataImporter;
+	//@Autowired
+	private TableMappingsService mappingService;
 
 	private List<String> mpfusersTables = new ArrayList<>();
 	private List<String> kiwiTables = new ArrayList<>();
 
 	public LoginController() {
-		
+
 		super();
 		appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-		dataImporter = (DataImporterServiceImpl) appContext.getBean("dataImporterDao");
+
+		dataImporter = appContext.getBean(DataImporterService.class);
+		mappingService = appContext.getBean(TableMappingsService.class);
 
 	}
 
@@ -61,7 +68,7 @@ public class LoginController implements Serializable {
 		return "succes";
 	}
 
-	public DataImporterServiceImpl getDataImporter() {
+	public DataImporterService getDataImporter() {
 		return dataImporter;
 	}
 
@@ -112,14 +119,16 @@ public class LoginController implements Serializable {
 	}
 
 	/**
-	 * Genera el mapeo entre Tablas y Entidades, para persistirlo en SIIF.TABLES_MAPPINGS
+	 * Genera el mapeo entre Tablas y Entidades, para persistirlo en
+	 * SIIF.TABLES_MAPPINGS
+	 * 
 	 * @return
 	 */
 	public String generateMappings() {
 
 		System.out.println("Regenerando mapeos tablas/entities...");
 
-		dataImporter.generateTableMappings();
+		mappingService.generateTableMappings();
 
 		return null;
 	}

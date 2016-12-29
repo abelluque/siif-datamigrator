@@ -1,4 +1,4 @@
-package ar.com.stack.siif.datamigrator.model;
+package ar.com.stack.siif.datamigrator.model.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -18,7 +19,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Tables_mappings", schema = "siif")
-public class TableMap implements Serializable {
+@NamedQuery(name = TableMapping.findByTableName, query = "SELECT e FROM TableMapping e WHERE e.tableName = :tableName")
+public class TableMapping implements Serializable {
+	
+	public static final String findByTableName = "TableMap.findByTableName";
+	public static final String findAll = "TableMap.findAll";
+
 
 	/**
 	 * Default serial version.
@@ -41,10 +47,10 @@ public class TableMap implements Serializable {
 	@Column
 	private String className;
 
-	public TableMap() {
+	public TableMapping() {
 	}
 
-	public TableMap(String dbName, String tableName, String className) {
+	public TableMapping(String dbName, String tableName, String className) {
 		super();
 		this.creationDate = new Date();
 		this.modificationDate = new Date();
@@ -74,7 +80,7 @@ public class TableMap implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TableMap other = (TableMap) obj;
+		TableMapping other = (TableMapping) obj;
 		if (className == null) {
 			if (other.className != null)
 				return false;

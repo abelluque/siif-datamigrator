@@ -10,10 +10,12 @@
 
 	<tx:annotation-driven />
 	<context:annotation-config />
+	
+	<context:component-scan base-package="ar.com.stack.siif.datamigrator" />
 
 	<!-- DAO de ejemplo -->
-	<bean id="dataImporterDao"
-		class="ar.com.stack.siif.datamigrator.model.DataImporterServiceImpl" />
+	<!-- 	<bean id="dataImporterDao" -->
+	<!-- 		class="ar.com.stack.siif.datamigrator.model.services.DataImporterServiceImpl" /> -->
 
 	<!-- TransactionManager for SIIF -->
 	<bean id="siifTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
