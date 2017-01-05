@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -19,12 +20,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Tables_mappings", schema = "siif")
-@NamedQuery(name = TableMapping.findByTableName, query = "SELECT e FROM TableMapping e WHERE e.tableName = :tableName")
+@NamedQueries({
+	@NamedQuery(name = TableMapping.findAll, query = "SELECT e FROM TableMapping e "),
+	@NamedQuery(name = TableMapping.findByTableAndDBName, query = "SELECT e FROM TableMapping e WHERE e.tableName = :tableName AND e.dbName = :dbName")})
 public class TableMapping implements Serializable {
-	
-	public static final String findByTableName = "TableMap.findByTableName";
-	public static final String findAll = "TableMap.findAll";
 
+	public static final String findAll = "TableMap.findAll";
+	public static final String findByTableAndDBName = "TableMap.findByTableAndDBName";
 
 	/**
 	 * Default serial version.

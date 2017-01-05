@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the utc_tipos_tramites_categorias_orgs database table.
  * 
  */
-// @Entity
-// @Table(name="utc_tipos_tramites_categorias_orgs")
+@Entity
+@Table(name="utc_tipos_tramites_categorias_orgs")
 @NamedQuery(name="UtcTiposTramitesCategoriasOrg.findAll", query="SELECT u FROM UtcTiposTramitesCategoriasOrg u")
 public class UtcTiposTramitesCategoriasOrg implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -35,6 +35,7 @@ public class UtcTiposTramitesCategoriasOrg implements Serializable {
 	@Column(name="uto_tiempo_prioridad_medio")
 	private int utoTiempoPrioridadMedio;
 
+	@Id
 	@Column(name="utt_code")
 	private int uttCode;
 

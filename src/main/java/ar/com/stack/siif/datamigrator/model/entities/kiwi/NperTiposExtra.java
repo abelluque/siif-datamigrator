@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the nper_tipos_extras database table.
  * 
  */
-// @Entity
-// @Table(name="nper_tipos_extras")
+@Entity
+@Table(name="nper_tipos_extras")
 @NamedQuery(name="NperTiposExtra.findAll", query="SELECT n FROM NperTiposExtra n")
 public class NperTiposExtra implements Serializable {
 	private static final long serialVersionUID = 1L;

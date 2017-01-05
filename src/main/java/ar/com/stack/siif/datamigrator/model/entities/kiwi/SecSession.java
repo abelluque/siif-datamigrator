@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the sec_sessions database table.
  * 
  */
-// @Entity
-// @Table(name="sec_sessions")
+@Entity
+@Table(name="sec_sessions")
 @NamedQuery(name="SecSession.findAll", query="SELECT s FROM SecSession s")
 public class SecSession implements Serializable {
 	private static final long serialVersionUID = 1L;

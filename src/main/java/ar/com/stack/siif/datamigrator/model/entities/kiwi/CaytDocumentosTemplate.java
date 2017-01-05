@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the cayt_documentos_templates database table.
  * 
  */
-// @Entity
-// @Table(name="cayt_documentos_templates")
+@Entity
+@Table(name="cayt_documentos_templates")
 @NamedQuery(name="CaytDocumentosTemplate.findAll", query="SELECT c FROM CaytDocumentosTemplate c")
 public class CaytDocumentosTemplate implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the tsj_dictamenes_control_calidad database table.
  * 
  */
-// @Entity
-// @Table(name="tsj_dictamenes_control_calidad")
+@Entity
+@Table(name="tsj_dictamenes_control_calidad")
 @NamedQuery(name="TsjDictamenesControlCalidad.findAll", query="SELECT t FROM TsjDictamenesControlCalidad t")
 public class TsjDictamenesControlCalidad implements Serializable {
 	private static final long serialVersionUID = 1L;

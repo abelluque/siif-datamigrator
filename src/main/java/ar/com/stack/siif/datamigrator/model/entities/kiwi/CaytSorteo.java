@@ -1,20 +1,28 @@
 package ar.com.stack.siif.datamigrator.model.entities.kiwi;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
  * The persistent class for the cayt_sorteos database table.
  * 
  */
-// @Entity
-// @Table(name="cayt_sorteos")
+@Entity
+@Table(name="cayt_sorteos")
 @NamedQuery(name="CaytSorteo.findAll", query="SELECT c FROM CaytSorteo c")
 public class CaytSorteo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="sor_agrupamiento")
 	private String sorAgrupamiento;
 

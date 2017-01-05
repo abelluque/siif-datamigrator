@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the geo_lugares database table.
  * 
  */
-// @Entity
-// @Table(name="geo_lugares")
+@Entity
+@Table(name="geo_lugares")
 @NamedQuery(name="GeoLugare.findAll", query="SELECT g FROM GeoLugare g")
 public class GeoLugare implements Serializable {
 	private static final long serialVersionUID = 1L;

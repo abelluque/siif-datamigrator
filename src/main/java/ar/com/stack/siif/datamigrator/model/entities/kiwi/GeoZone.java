@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the geo_zone database table.
  * 
  */
-// @Entity
-// @Table(name="geo_zone")
+@Entity
+@Table(name="geo_zone")
 @NamedQuery(name="GeoZone.findAll", query="SELECT g FROM GeoZone g")
 public class GeoZone implements Serializable {
 	private static final long serialVersionUID = 1L;

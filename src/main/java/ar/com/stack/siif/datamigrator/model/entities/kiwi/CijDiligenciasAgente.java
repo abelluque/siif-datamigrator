@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the cij_diligencias_agentes database table.
  * 
  */
-// @Entity
-// @Table(name="cij_diligencias_agentes")
+@Entity
+@Table(name="cij_diligencias_agentes")
 @NamedQuery(name="CijDiligenciasAgente.findAll", query="SELECT c FROM CijDiligenciasAgente c")
 public class CijDiligenciasAgente implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the tsj_expedientes_contenidos database table.
  * 
  */
-// @Entity
-// @Table(name="tsj_expedientes_contenidos")
+@Entity
+@Table(name="tsj_expedientes_contenidos")
 @NamedQuery(name="TsjExpedientesContenido.findAll", query="SELECT t FROM TsjExpedientesContenido t")
 public class TsjExpedientesContenido implements Serializable {
 	private static final long serialVersionUID = 1L;

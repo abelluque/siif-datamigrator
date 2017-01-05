@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the sec_parameters database table.
  * 
  */
-// @Entity
-// @Table(name="sec_parameters")
+@Entity
+@Table(name="sec_parameters")
 @NamedQuery(name="SecParameter.findAll", query="SELECT s FROM SecParameter s")
 public class SecParameter implements Serializable {
 	private static final long serialVersionUID = 1L;

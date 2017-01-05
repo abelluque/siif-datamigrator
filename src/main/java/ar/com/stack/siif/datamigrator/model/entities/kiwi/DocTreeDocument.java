@@ -1,19 +1,25 @@
 package ar.com.stack.siif.datamigrator.model.entities.kiwi;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the doc_tree_documents database table.
  * 
  */
-// @Entity
-// @Table(name="doc_tree_documents")
+@Entity
+@Table(name="doc_tree_documents")
 @NamedQuery(name="DocTreeDocument.findAll", query="SELECT d FROM DocTreeDocument d")
 public class DocTreeDocument implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="doc_code")
 	private String docCode;
 

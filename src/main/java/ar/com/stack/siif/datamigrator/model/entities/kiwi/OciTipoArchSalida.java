@@ -9,8 +9,8 @@ import java.util.List;
  * The persistent class for the oci_tipo_arch_salida database table.
  * 
  */
-// @Entity
-// @Table(name="oci_tipo_arch_salida")
+@Entity
+@Table(name="oci_tipo_arch_salida")
 @NamedQuery(name="OciTipoArchSalida.findAll", query="SELECT o FROM OciTipoArchSalida o")
 public class OciTipoArchSalida implements Serializable {
 	private static final long serialVersionUID = 1L;

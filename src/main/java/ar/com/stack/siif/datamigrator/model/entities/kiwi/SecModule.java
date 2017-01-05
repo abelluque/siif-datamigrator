@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the sec_modules database table.
  * 
  */
-// @Entity
-// @Table(name="sec_modules")
+@Entity
+@Table(name="sec_modules")
 @NamedQuery(name="SecModule.findAll", query="SELECT s FROM SecModule s")
 public class SecModule implements Serializable {
 	private static final long serialVersionUID = 1L;

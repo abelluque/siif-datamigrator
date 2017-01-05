@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the spp_instituciones_observaciones database table.
  * 
  */
-// @Entity
-// @Table(name="spp_instituciones_observaciones")
+@Entity
+@Table(name="spp_instituciones_observaciones")
 @NamedQuery(name="SppInstitucionesObservacione.findAll", query="SELECT s FROM SppInstitucionesObservacione s")
 public class SppInstitucionesObservacione implements Serializable {
 	private static final long serialVersionUID = 1L;

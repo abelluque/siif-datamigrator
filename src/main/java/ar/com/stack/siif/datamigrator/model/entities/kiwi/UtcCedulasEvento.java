@@ -9,12 +9,13 @@ import java.util.Date;
  * The persistent class for the utc_cedulas_eventos database table.
  * 
  */
-// @Entity
-// @Table(name="utc_cedulas_eventos")
+@Entity
+@Table(name="utc_cedulas_eventos")
 @NamedQuery(name="UtcCedulasEvento.findAll", query="SELECT u FROM UtcCedulasEvento u")
 public class UtcCedulasEvento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="ced_code")
 	private int cedCode;
 

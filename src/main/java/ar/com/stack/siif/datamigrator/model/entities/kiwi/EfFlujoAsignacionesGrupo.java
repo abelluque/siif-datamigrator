@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the ef_flujo_asignaciones_grupos database table.
  * 
  */
-// @Entity
-// @Table(name="ef_flujo_asignaciones_grupos")
+@Entity
+@Table(name="ef_flujo_asignaciones_grupos")
 @NamedQuery(name="EfFlujoAsignacionesGrupo.findAll", query="SELECT e FROM EfFlujoAsignacionesGrupo e")
 public class EfFlujoAsignacionesGrupo implements Serializable {
 	private static final long serialVersionUID = 1L;

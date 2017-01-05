@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the den_cuestionarios database table.
  * 
  */
-// @Entity
-// @Table(name="den_cuestionarios")
+@Entity
+@Table(name="den_cuestionarios")
 @NamedQuery(name="DenCuestionario.findAll", query="SELECT d FROM DenCuestionario d")
 public class DenCuestionario implements Serializable {
 	private static final long serialVersionUID = 1L;

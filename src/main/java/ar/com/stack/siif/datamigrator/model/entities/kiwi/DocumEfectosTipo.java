@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the docum_efectos_tipos database table.
  * 
  */
-// @Entity
-// @Table(name="docum_efectos_tipos")
+@Entity
+@Table(name="docum_efectos_tipos")
 @NamedQuery(name="DocumEfectosTipo.findAll", query="SELECT d FROM DocumEfectosTipo d")
 public class DocumEfectosTipo implements Serializable {
 	private static final long serialVersionUID = 1L;

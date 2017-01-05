@@ -1,21 +1,27 @@
 package ar.com.stack.siif.datamigrator.model.entities.kiwi;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the gen_botones_user database table.
  * 
  */
-// @Entity
-// @Table(name="gen_botones_user")
+@Entity
+@Table(name="gen_botones_user")
 @NamedQuery(name="GenBotonesUser.findAll", query="SELECT g FROM GenBotonesUser g")
 public class GenBotonesUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int botonera;
 
+	@Id
 	@Column(name="gba_id")
 	private int gbaId;
 

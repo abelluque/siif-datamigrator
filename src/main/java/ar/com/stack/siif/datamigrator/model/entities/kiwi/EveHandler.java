@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the eve_handlers database table.
  * 
  */
-// @Entity
-// @Table(name="eve_handlers")
+@Entity
+@Table(name="eve_handlers")
 @NamedQuery(name="EveHandler.findAll", query="SELECT e FROM EveHandler e")
 public class EveHandler implements Serializable {
 	private static final long serialVersionUID = 1L;

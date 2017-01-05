@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the sec_sequence database table.
  * 
  */
-// @Entity
-// @Table(name="sec_sequence")
+@Entity
+@Table(name="sec_sequence")
 @NamedQuery(name="SecSequence.findAll", query="SELECT s FROM SecSequence s")
 public class SecSequence implements Serializable {
 	private static final long serialVersionUID = 1L;

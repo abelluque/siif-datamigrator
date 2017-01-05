@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the docum_traductor_juscaba_pasos database table.
  * 
  */
-// @Entity
-// @Table(name="docum_traductor_juscaba_pasos")
+@Entity
+@Table(name="docum_traductor_juscaba_pasos")
 @NamedQuery(name="DocumTraductorJuscabaPaso.findAll", query="SELECT d FROM DocumTraductorJuscabaPaso d")
 public class DocumTraductorJuscabaPaso implements Serializable {
 	private static final long serialVersionUID = 1L;

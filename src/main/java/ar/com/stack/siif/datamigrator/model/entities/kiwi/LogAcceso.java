@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the log_accesos database table.
  * 
  */
-// @Entity
-// @Table(name="log_accesos")
+@Entity
+@Table(name="log_accesos")
 @NamedQuery(name="LogAcceso.findAll", query="SELECT l FROM LogAcceso l")
 public class LogAcceso implements Serializable {
 	private static final long serialVersionUID = 1L;

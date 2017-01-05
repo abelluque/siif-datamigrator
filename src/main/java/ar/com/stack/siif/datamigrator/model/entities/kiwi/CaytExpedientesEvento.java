@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the cayt_expedientes_eventos database table.
  * 
  */
-// @Entity
-// @Table(name="cayt_expedientes_eventos")
+@Entity
+@Table(name="cayt_expedientes_eventos")
 @NamedQuery(name="CaytExpedientesEvento.findAll", query="SELECT c FROM CaytExpedientesEvento c")
 public class CaytExpedientesEvento implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the ofavyt_intervenciones_asistencias database table.
  * 
  */
-// @Entity
-// @Table(name="ofavyt_intervenciones_asistencias")
+@Entity
+@Table(name="ofavyt_intervenciones_asistencias")
 @NamedQuery(name="OfavytIntervencionesAsistencia.findAll", query="SELECT o FROM OfavytIntervencionesAsistencia o")
 public class OfavytIntervencionesAsistencia implements Serializable {
 	private static final long serialVersionUID = 1L;

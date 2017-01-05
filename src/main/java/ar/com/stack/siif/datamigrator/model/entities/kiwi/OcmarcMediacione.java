@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the ocmarc_mediaciones database table.
  * 
  */
-// @Entity
-// @Table(name="ocmarc_mediaciones")
+@Entity
+@Table(name="ocmarc_mediaciones")
 @NamedQuery(name="OcmarcMediacione.findAll", query="SELECT o FROM OcmarcMediacione o")
 public class OcmarcMediacione implements Serializable {
 	private static final long serialVersionUID = 1L;

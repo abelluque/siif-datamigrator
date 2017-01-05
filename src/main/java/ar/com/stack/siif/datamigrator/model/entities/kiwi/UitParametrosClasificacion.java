@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the uit_parametros_clasificacion database table.
  * 
  */
-// @Entity
-// @Table(name="uit_parametros_clasificacion")
+@Entity
+@Table(name="uit_parametros_clasificacion")
 @NamedQuery(name="UitParametrosClasificacion.findAll", query="SELECT u FROM UitParametrosClasificacion u")
 public class UitParametrosClasificacion implements Serializable {
 	private static final long serialVersionUID = 1L;

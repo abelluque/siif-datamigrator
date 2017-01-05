@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the spp_reglas_de_conducta database table.
  * 
  */
-// @Entity
-// @Table(name="spp_reglas_de_conducta")
+@Entity
+@Table(name="spp_reglas_de_conducta")
 @NamedQuery(name="SppReglasDeConducta.findAll", query="SELECT s FROM SppReglasDeConducta s")
 public class SppReglasDeConducta implements Serializable {
 	private static final long serialVersionUID = 1L;

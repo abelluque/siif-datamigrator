@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the utc_cedulas_remitos_detalles database table.
  * 
  */
-// @Entity
-// @Table(name="utc_cedulas_remitos_detalles")
+@Entity
+@Table(name="utc_cedulas_remitos_detalles")
 @NamedQuery(name="UtcCedulasRemitosDetalle.findAll", query="SELECT u FROM UtcCedulasRemitosDetalle u")
 public class UtcCedulasRemitosDetalle implements Serializable {
 	private static final long serialVersionUID = 1L;

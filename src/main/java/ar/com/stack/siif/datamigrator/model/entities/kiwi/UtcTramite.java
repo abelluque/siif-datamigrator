@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the utc_tramites database table.
  * 
  */
-// @Entity
-// @Table(name="utc_tramites")
+@Entity
+@Table(name="utc_tramites")
 @NamedQuery(name="UtcTramite.findAll", query="SELECT u FROM UtcTramite u")
 public class UtcTramite implements Serializable {
 	private static final long serialVersionUID = 1L;

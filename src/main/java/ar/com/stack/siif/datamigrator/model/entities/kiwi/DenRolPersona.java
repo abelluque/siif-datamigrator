@@ -10,8 +10,8 @@ import java.sql.Timestamp;
  * The persistent class for the den_rol_persona database table.
  * 
  */
-// @Entity
-// @Table(name="den_rol_persona")
+@Entity
+@Table(name="den_rol_persona")
 @NamedQuery(name="DenRolPersona.findAll", query="SELECT d FROM DenRolPersona d")
 public class DenRolPersona implements Serializable {
 	private static final long serialVersionUID = 1L;

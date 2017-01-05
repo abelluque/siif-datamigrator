@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the pad_padron_caba_2003 database table.
  * 
  */
-// @Entity
-// @Table(name="pad_padron_caba_2003")
+@Entity
+@Table(name="pad_padron_caba_2003")
 @NamedQuery(name="PadPadronCaba2003.findAll", query="SELECT p FROM PadPadronCaba2003 p")
 public class PadPadronCaba2003 implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -22,6 +22,7 @@ public class PadPadronCaba2003 implements Serializable {
 
 	private int domicilio;
 
+	@Id
 	private int matricula;
 
 	private int nombre;

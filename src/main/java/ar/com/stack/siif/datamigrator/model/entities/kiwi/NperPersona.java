@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the nper_personas database table.
  * 
  */
-// @Entity
-// @Table(name="nper_personas")
+@Entity
+@Table(name="nper_personas")
 @NamedQuery(name="NperPersona.findAll", query="SELECT n FROM NperPersona n")
 public class NperPersona implements Serializable {
 	private static final long serialVersionUID = 1L;

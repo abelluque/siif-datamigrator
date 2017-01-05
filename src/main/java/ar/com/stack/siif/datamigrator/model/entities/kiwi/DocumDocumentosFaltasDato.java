@@ -1,20 +1,29 @@
 package ar.com.stack.siif.datamigrator.model.entities.kiwi;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
  * The persistent class for the docum_documentos_faltas_datos database table.
  * 
  */
-// @Entity
-// @Table(name="docum_documentos_faltas_datos")
+@Entity
+@Table(name="docum_documentos_faltas_datos")
 @NamedQuery(name="DocumDocumentosFaltasDato.findAll", query="SELECT d FROM DocumDocumentosFaltasDato d")
 public class DocumDocumentosFaltasDato implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Lob
 	@Column(name="doc_faltas_anexo_informativo")
 	private String docFaltasAnexoInformativo;

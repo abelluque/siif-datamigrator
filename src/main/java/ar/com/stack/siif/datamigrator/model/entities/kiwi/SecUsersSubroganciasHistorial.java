@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the sec_users_subrogancias_historial database table.
  * 
  */
-// @Entity
-// @Table(name="sec_users_subrogancias_historial")
+@Entity
+@Table(name="sec_users_subrogancias_historial")
 @NamedQuery(name="SecUsersSubroganciasHistorial.findAll", query="SELECT s FROM SecUsersSubroganciasHistorial s")
 public class SecUsersSubroganciasHistorial implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -17,6 +17,7 @@ public class SecUsersSubroganciasHistorial implements Serializable {
 	@Column(name="subh_aal_codigo_subrogada")
 	private int subhAalCodigoSubrogada;
 
+	@Id
 	@Column(name="subh_code")
 	private int subhCode;
 

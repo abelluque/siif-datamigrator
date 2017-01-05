@@ -1,19 +1,25 @@
 package ar.com.stack.siif.datamigrator.model.entities.kiwi;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the gen_centro_costos database table.
  * 
  */
-// @Entity
-// @Table(name="gen_centro_costos")
+@Entity
+@Table(name="gen_centro_costos")
 @NamedQuery(name="GenCentroCosto.findAll", query="SELECT g FROM GenCentroCosto g")
 public class GenCentroCosto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="gcc_centro_costo")
 	private int gccCentroCosto;
 

@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the spp_suspensiones_de_proceso_agenda database table.
  * 
  */
-// @Entity
-// @Table(name="spp_suspensiones_de_proceso_agenda")
+@Entity
+@Table(name="spp_suspensiones_de_proceso_agenda")
 @NamedQuery(name="SppSuspensionesDeProcesoAgenda.findAll", query="SELECT s FROM SppSuspensionesDeProcesoAgenda s")
 public class SppSuspensionesDeProcesoAgenda implements Serializable {
 	private static final long serialVersionUID = 1L;

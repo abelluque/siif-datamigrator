@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the spp_informes_previos_eventos database table.
  * 
  */
-// @Entity
-// @Table(name="spp_informes_previos_eventos")
+@Entity
+@Table(name="spp_informes_previos_eventos")
 @NamedQuery(name="SppInformesPreviosEvento.findAll", query="SELECT s FROM SppInformesPreviosEvento s")
 public class SppInformesPreviosEvento implements Serializable {
 	private static final long serialVersionUID = 1L;

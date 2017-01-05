@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the v_articulos database table.
  * 
  */
-// @Entity
-// @Table(name="v_articulos")
+@Entity
+@Table(name="v_articulos")
 @NamedQuery(name="VArticulo.findAll", query="SELECT v FROM VArticulo v")
 public class VArticulo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="art_code")
 	private int artCode;
 

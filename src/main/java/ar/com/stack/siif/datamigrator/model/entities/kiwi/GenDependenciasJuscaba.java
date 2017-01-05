@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the gen_dependencias_juscaba database table.
  * 
  */
-// @Entity
-// @Table(name="gen_dependencias_juscaba")
+@Entity
+@Table(name="gen_dependencias_juscaba")
 @NamedQuery(name="GenDependenciasJuscaba.findAll", query="SELECT g FROM GenDependenciasJuscaba g")
 public class GenDependenciasJuscaba implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="aal_codigo")
 	private int aalCodigo;
 

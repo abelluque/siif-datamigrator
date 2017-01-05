@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the tsj_contenidos_sistematizados database table.
  * 
  */
-// @Entity
-// @Table(name="tsj_contenidos_sistematizados")
+@Entity
+@Table(name="tsj_contenidos_sistematizados")
 @NamedQuery(name="TsjContenidosSistematizado.findAll", query="SELECT t FROM TsjContenidosSistematizado t")
 public class TsjContenidosSistematizado implements Serializable {
 	private static final long serialVersionUID = 1L;

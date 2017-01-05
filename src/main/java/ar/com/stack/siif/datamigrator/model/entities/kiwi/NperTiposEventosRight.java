@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the nper_tipos_eventos_rights database table.
  * 
  */
-// @Entity
-// @Table(name="nper_tipos_eventos_rights")
+@Entity
+@Table(name="nper_tipos_eventos_rights")
 @NamedQuery(name="NperTiposEventosRight.findAll", query="SELECT n FROM NperTiposEventosRight n")
 public class NperTiposEventosRight implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="pte_evento")
 	private String pteEvento;
 

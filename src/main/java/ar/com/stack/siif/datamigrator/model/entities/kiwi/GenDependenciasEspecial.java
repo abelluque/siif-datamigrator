@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the gen_dependencias_especial database table.
  * 
  */
-// @Entity
-// @Table(name="gen_dependencias_especial")
+@Entity
+@Table(name="gen_dependencias_especial")
 @NamedQuery(name="GenDependenciasEspecial.findAll", query="SELECT g FROM GenDependenciasEspecial g")
 public class GenDependenciasEspecial implements Serializable {
 	private static final long serialVersionUID = 1L;

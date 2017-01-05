@@ -1,19 +1,25 @@
 package ar.com.stack.siif.datamigrator.model.entities.kiwi;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the avi_eventos database table.
  * 
  */
-// @Entity
-// @Table(name="avi_eventos")
+@Entity
+@Table(name="avi_eventos")
 @NamedQuery(name="AviEvento.findAll", query="SELECT a FROM AviEvento a")
 public class AviEvento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="ave_code")
 	private String aveCode;
 

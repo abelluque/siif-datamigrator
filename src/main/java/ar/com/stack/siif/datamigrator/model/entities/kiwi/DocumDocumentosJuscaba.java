@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the docum_documentos_juscaba database table.
  * 
  */
-// @Entity
-// @Table(name="docum_documentos_juscaba")
+@Entity
+@Table(name="docum_documentos_juscaba")
 @NamedQuery(name="DocumDocumentosJuscaba.findAll", query="SELECT d FROM DocumDocumentosJuscaba d")
 public class DocumDocumentosJuscaba implements Serializable {
 	private static final long serialVersionUID = 1L;

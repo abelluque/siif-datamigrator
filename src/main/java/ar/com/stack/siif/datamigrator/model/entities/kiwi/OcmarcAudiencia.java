@@ -10,8 +10,8 @@ import java.util.Date;
  * The persistent class for the ocmarc_audiencias database table.
  * 
  */
-// @Entity
-// @Table(name="ocmarc_audiencias")
+@Entity
+@Table(name="ocmarc_audiencias")
 @NamedQuery(name="OcmarcAudiencia.findAll", query="SELECT o FROM OcmarcAudiencia o")
 public class OcmarcAudiencia implements Serializable {
 	private static final long serialVersionUID = 1L;

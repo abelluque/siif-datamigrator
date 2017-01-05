@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the utc_tramites_adjuntos database table.
  * 
  */
-// @Entity
-// @Table(name="utc_tramites_adjuntos")
+@Entity
+@Table(name="utc_tramites_adjuntos")
 @NamedQuery(name="UtcTramitesAdjunto.findAll", query="SELECT u FROM UtcTramitesAdjunto u")
 public class UtcTramitesAdjunto implements Serializable {
 	private static final long serialVersionUID = 1L;

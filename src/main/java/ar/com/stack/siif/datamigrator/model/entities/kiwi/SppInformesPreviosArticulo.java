@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the spp_informes_previos_articulos database table.
  * 
  */
-// @Entity
-// @Table(name="spp_informes_previos_articulos")
+@Entity
+@Table(name="spp_informes_previos_articulos")
 @NamedQuery(name="SppInformesPreviosArticulo.findAll", query="SELECT s FROM SppInformesPreviosArticulo s")
 public class SppInformesPreviosArticulo implements Serializable {
 	private static final long serialVersionUID = 1L;

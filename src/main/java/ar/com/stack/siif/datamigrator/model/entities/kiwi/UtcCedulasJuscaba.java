@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the utc_cedulas_juscaba database table.
  * 
  */
-// @Entity
-// @Table(name="utc_cedulas_juscaba")
+@Entity
+@Table(name="utc_cedulas_juscaba")
 @NamedQuery(name="UtcCedulasJuscaba.findAll", query="SELECT u FROM UtcCedulasJuscaba u")
 public class UtcCedulasJuscaba implements Serializable {
 	private static final long serialVersionUID = 1L;

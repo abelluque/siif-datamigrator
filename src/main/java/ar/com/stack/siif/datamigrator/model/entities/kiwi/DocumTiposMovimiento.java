@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the docum_tipos_movimientos database table.
  * 
  */
-// @Entity
-// @Table(name="docum_tipos_movimientos")
+@Entity
+@Table(name="docum_tipos_movimientos")
 @NamedQuery(name="DocumTiposMovimiento.findAll", query="SELECT d FROM DocumTiposMovimiento d")
 public class DocumTiposMovimiento implements Serializable {
 	private static final long serialVersionUID = 1L;

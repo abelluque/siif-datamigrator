@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the ocmarc_roles_mediacion database table.
  * 
  */
-// @Entity
-// @Table(name="ocmarc_roles_mediacion")
+@Entity
+@Table(name="ocmarc_roles_mediacion")
 @NamedQuery(name="OcmarcRolesMediacion.findAll", query="SELECT o FROM OcmarcRolesMediacion o")
 public class OcmarcRolesMediacion implements Serializable {
 	private static final long serialVersionUID = 1L;

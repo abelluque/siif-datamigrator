@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the tsj_tipos_contenido database table.
  * 
  */
-// @Entity
-// @Table(name="tsj_tipos_contenido")
+@Entity
+@Table(name="tsj_tipos_contenido")
 @NamedQuery(name="TsjTiposContenido.findAll", query="SELECT t FROM TsjTiposContenido t")
 public class TsjTiposContenido implements Serializable {
 	private static final long serialVersionUID = 1L;

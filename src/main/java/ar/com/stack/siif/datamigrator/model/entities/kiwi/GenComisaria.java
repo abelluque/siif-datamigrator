@@ -9,8 +9,8 @@ import java.math.BigDecimal;
  * The persistent class for the gen_comisarias database table.
  * 
  */
-// @Entity
-// @Table(name="gen_comisarias")
+@Entity
+@Table(name="gen_comisarias")
 @NamedQuery(name="GenComisaria.findAll", query="SELECT g FROM GenComisaria g")
 public class GenComisaria implements Serializable {
 	private static final long serialVersionUID = 1L;

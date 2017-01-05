@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the tsj_expedientes_recursos_interpuestos database table.
  * 
  */
-// @Entity
-// @Table(name="tsj_expedientes_recursos_interpuestos")
+@Entity
+@Table(name="tsj_expedientes_recursos_interpuestos")
 @NamedQuery(name="TsjExpedientesRecursosInterpuesto.findAll", query="SELECT t FROM TsjExpedientesRecursosInterpuesto t")
 public class TsjExpedientesRecursosInterpuesto implements Serializable {
 	private static final long serialVersionUID = 1L;

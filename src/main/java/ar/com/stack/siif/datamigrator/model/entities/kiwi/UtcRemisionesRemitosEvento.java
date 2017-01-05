@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the utc_remisiones_remitos_eventos database table.
  * 
  */
-// @Entity
-// @Table(name="utc_remisiones_remitos_eventos")
+@Entity
+@Table(name="utc_remisiones_remitos_eventos")
 @NamedQuery(name="UtcRemisionesRemitosEvento.findAll", query="SELECT u FROM UtcRemisionesRemitosEvento u")
 public class UtcRemisionesRemitosEvento implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -22,6 +22,7 @@ public class UtcRemisionesRemitosEvento implements Serializable {
 	@Column(name="ure_tstamp")
 	private Date ureTstamp;
 
+	@Id
 	@Column(name="urr_code")
 	private int urrCode;
 

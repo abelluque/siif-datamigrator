@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the for_cursos database table.
  * 
  */
-// @Entity
-// @Table(name="for_cursos")
+@Entity
+@Table(name="for_cursos")
 @NamedQuery(name="ForCurso.findAll", query="SELECT f FROM ForCurso f")
 public class ForCurso implements Serializable {
 	private static final long serialVersionUID = 1L;

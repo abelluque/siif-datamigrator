@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the oci_contravencion_carga_eventos database table.
  * 
  */
-// @Entity
-// @Table(name="oci_contravencion_carga_eventos")
+@Entity
+@Table(name="oci_contravencion_carga_eventos")
 @NamedQuery(name="OciContravencionCargaEvento.findAll", query="SELECT o FROM OciContravencionCargaEvento o")
 public class OciContravencionCargaEvento implements Serializable {
 	private static final long serialVersionUID = 1L;

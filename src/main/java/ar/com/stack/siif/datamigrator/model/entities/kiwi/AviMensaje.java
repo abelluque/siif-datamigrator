@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the avi_mensajes database table.
  * 
  */
-// @Entity
-// @Table(name="avi_mensajes")
+@Entity
+@Table(name="avi_mensajes")
 @NamedQuery(name="AviMensaje.findAll", query="SELECT a FROM AviMensaje a")
 public class AviMensaje implements Serializable {
 	private static final long serialVersionUID = 1L;

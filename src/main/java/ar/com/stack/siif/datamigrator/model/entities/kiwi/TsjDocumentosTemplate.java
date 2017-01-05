@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the tsj_documentos_templates database table.
  * 
  */
-// @Entity
-// @Table(name="tsj_documentos_templates")
+@Entity
+@Table(name="tsj_documentos_templates")
 @NamedQuery(name="TsjDocumentosTemplate.findAll", query="SELECT t FROM TsjDocumentosTemplate t")
 public class TsjDocumentosTemplate implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -17,6 +17,7 @@ public class TsjDocumentosTemplate implements Serializable {
 	@Column(name="dte_archivo")
 	private String dteArchivo;
 
+	@Id
 	@Column(name="dte_code")
 	private int dteCode;
 

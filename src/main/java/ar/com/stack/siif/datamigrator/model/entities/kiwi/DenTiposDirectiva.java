@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the den_tipos_directivas database table.
  * 
  */
-// @Entity
-// @Table(name="den_tipos_directivas")
+@Entity
+@Table(name="den_tipos_directivas")
 @NamedQuery(name="DenTiposDirectiva.findAll", query="SELECT d FROM DenTiposDirectiva d")
 public class DenTiposDirectiva implements Serializable {
 	private static final long serialVersionUID = 1L;

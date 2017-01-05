@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the ef_flujo_excepciones database table.
  * 
  */
-// @Entity
-// @Table(name="ef_flujo_excepciones")
+@Entity
+@Table(name="ef_flujo_excepciones")
 @NamedQuery(name="EfFlujoExcepcione.findAll", query="SELECT e FROM EfFlujoExcepcione e")
 public class EfFlujoExcepcione implements Serializable {
 	private static final long serialVersionUID = 1L;

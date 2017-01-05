@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the sec_rights database table.
  * 
  */
-// @Entity
-// @Table(name="sec_rights")
+@Entity
+@Table(name="sec_rights")
 @NamedQuery(name="SecRight.findAll", query="SELECT s FROM SecRight s")
 public class SecRight implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -20,6 +20,7 @@ public class SecRight implements Serializable {
 	@Column(name="rig_description")
 	private int rigDescription;
 
+	@Id
 	@Column(name="rig_name")
 	private int rigName;
 

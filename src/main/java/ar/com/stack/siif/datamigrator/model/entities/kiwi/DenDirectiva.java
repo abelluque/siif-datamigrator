@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the den_directivas database table.
  * 
  */
-// @Entity
-// @Table(name="den_directivas")
+@Entity
+@Table(name="den_directivas")
 @NamedQuery(name="DenDirectiva.findAll", query="SELECT d FROM DenDirectiva d")
 public class DenDirectiva implements Serializable {
 	private static final long serialVersionUID = 1L;

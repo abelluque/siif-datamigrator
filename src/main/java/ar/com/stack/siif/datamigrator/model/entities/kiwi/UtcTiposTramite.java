@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the utc_tipos_tramites database table.
  * 
  */
-// @Entity
-// @Table(name="utc_tipos_tramites")
+@Entity
+@Table(name="utc_tipos_tramites")
 @NamedQuery(name="UtcTiposTramite.findAll", query="SELECT u FROM UtcTiposTramite u")
 public class UtcTiposTramite implements Serializable {
 	private static final long serialVersionUID = 1L;

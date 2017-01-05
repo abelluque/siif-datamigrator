@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the tsj_categorias_originarios database table.
  * 
  */
-// @Entity
-// @Table(name="tsj_categorias_originarios")
+@Entity
+@Table(name="tsj_categorias_originarios")
 @NamedQuery(name="TsjCategoriasOriginario.findAll", query="SELECT t FROM TsjCategoriasOriginario t")
 public class TsjCategoriasOriginario implements Serializable {
 	private static final long serialVersionUID = 1L;

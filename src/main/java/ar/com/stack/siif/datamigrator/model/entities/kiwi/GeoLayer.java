@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the geo_layers database table.
  * 
  */
-// @Entity
-// @Table(name="geo_layers")
+@Entity
+@Table(name="geo_layers")
 @NamedQuery(name="GeoLayer.findAll", query="SELECT g FROM GeoLayer g")
 public class GeoLayer implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the tsj_tipos_de_proceso database table.
  * 
  */
-// @Entity
-// @Table(name="tsj_tipos_de_proceso")
+@Entity
+@Table(name="tsj_tipos_de_proceso")
 @NamedQuery(name="TsjTiposDeProceso.findAll", query="SELECT t FROM TsjTiposDeProceso t")
 public class TsjTiposDeProceso implements Serializable {
 	private static final long serialVersionUID = 1L;

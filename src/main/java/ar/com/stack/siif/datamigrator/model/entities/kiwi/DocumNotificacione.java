@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the docum_notificaciones database table.
  * 
  */
-// @Entity
-// @Table(name="docum_notificaciones")
+@Entity
+@Table(name="docum_notificaciones")
 @NamedQuery(name="DocumNotificacione.findAll", query="SELECT d FROM DocumNotificacione d")
 public class DocumNotificacione implements Serializable {
 	private static final long serialVersionUID = 1L;

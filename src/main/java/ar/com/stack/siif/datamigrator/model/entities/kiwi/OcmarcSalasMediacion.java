@@ -9,8 +9,8 @@ import java.math.BigDecimal;
  * The persistent class for the ocmarc_salas_mediacion database table.
  * 
  */
-// @Entity
-// @Table(name="ocmarc_salas_mediacion")
+@Entity
+@Table(name="ocmarc_salas_mediacion")
 @NamedQuery(name="OcmarcSalasMediacion.findAll", query="SELECT o FROM OcmarcSalasMediacion o")
 public class OcmarcSalasMediacion implements Serializable {
 	private static final long serialVersionUID = 1L;

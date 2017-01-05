@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the docum_notas database table.
  * 
  */
-// @Entity
-// @Table(name="docum_notas")
+@Entity
+@Table(name="docum_notas")
 @NamedQuery(name="DocumNota.findAll", query="SELECT d FROM DocumNota d")
 public class DocumNota implements Serializable {
 	private static final long serialVersionUID = 1L;

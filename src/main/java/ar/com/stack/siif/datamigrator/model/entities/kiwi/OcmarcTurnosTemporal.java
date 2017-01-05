@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the ocmarc_turnos_temporal database table.
  * 
  */
-// @Entity
-// @Table(name="ocmarc_turnos_temporal")
+@Entity
+@Table(name="ocmarc_turnos_temporal")
 @NamedQuery(name="OcmarcTurnosTemporal.findAll", query="SELECT o FROM OcmarcTurnosTemporal o")
 public class OcmarcTurnosTemporal implements Serializable {
 	private static final long serialVersionUID = 1L;

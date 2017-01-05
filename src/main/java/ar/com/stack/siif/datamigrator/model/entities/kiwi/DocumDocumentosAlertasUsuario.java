@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the docum_documentos_alertas_usuarios database table.
  * 
  */
-// @Entity
-// @Table(name="docum_documentos_alertas_usuarios")
+@Entity
+@Table(name="docum_documentos_alertas_usuarios")
 @NamedQuery(name="DocumDocumentosAlertasUsuario.findAll", query="SELECT d FROM DocumDocumentosAlertasUsuario d")
 public class DocumDocumentosAlertasUsuario implements Serializable {
 	private static final long serialVersionUID = 1L;

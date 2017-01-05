@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the gen_procesos database table.
  * 
  */
-// @Entity
-// @Table(name="gen_procesos")
+@Entity
+@Table(name="gen_procesos")
 @NamedQuery(name="GenProceso.findAll", query="SELECT g FROM GenProceso g")
 public class GenProceso implements Serializable {
 	private static final long serialVersionUID = 1L;

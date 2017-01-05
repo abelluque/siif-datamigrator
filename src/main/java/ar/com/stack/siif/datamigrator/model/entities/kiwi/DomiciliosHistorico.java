@@ -10,8 +10,8 @@ import java.util.Date;
  * The persistent class for the domicilios_historico database table.
  * 
  */
-// @Entity
-// @Table(name="domicilios_historico")
+@Entity
+@Table(name="domicilios_historico")
 @NamedQuery(name="DomiciliosHistorico.findAll", query="SELECT d FROM DomiciliosHistorico d")
 public class DomiciliosHistorico implements Serializable {
 	private static final long serialVersionUID = 1L;

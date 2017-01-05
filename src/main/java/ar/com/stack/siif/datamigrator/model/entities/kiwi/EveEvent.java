@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the eve_events database table.
  * 
  */
-// @Entity
-// @Table(name="eve_events")
+@Entity
+@Table(name="eve_events")
 @NamedQuery(name="EveEvent.findAll", query="SELECT e FROM EveEvent e")
 public class EveEvent implements Serializable {
 	private static final long serialVersionUID = 1L;

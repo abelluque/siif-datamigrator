@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the utc_medios database table.
  * 
  */
-// @Entity
-// @Table(name="utc_medios")
+@Entity
+@Table(name="utc_medios")
 @NamedQuery(name="UtcMedio.findAll", query="SELECT u FROM UtcMedio u")
 public class UtcMedio implements Serializable {
 	private static final long serialVersionUID = 1L;

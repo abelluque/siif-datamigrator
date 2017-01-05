@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the cayt_expedientes_juzgados_anio database table.
  * 
  */
-// @Entity
-// @Table(name="cayt_expedientes_juzgados_anio")
+@Entity
+@Table(name="cayt_expedientes_juzgados_anio")
 @NamedQuery(name="CaytExpedientesJuzgadosAnio.findAll", query="SELECT c FROM CaytExpedientesJuzgadosAnio c")
 public class CaytExpedientesJuzgadosAnio implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the cij_intervenciones database table.
  * 
  */
-// @Entity
-// @Table(name="cij_intervenciones")
+@Entity
+@Table(name="cij_intervenciones")
 @NamedQuery(name="CijIntervencione.findAll", query="SELECT c FROM CijIntervencione c")
 public class CijIntervencione implements Serializable {
 	private static final long serialVersionUID = 1L;

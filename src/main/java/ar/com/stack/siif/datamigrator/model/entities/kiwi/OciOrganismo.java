@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the oci_organismos database table.
  * 
  */
-// @Entity
-// @Table(name="oci_organismos")
+@Entity
+@Table(name="oci_organismos")
 @NamedQuery(name="OciOrganismo.findAll", query="SELECT o FROM OciOrganismo o")
 public class OciOrganismo implements Serializable {
 	private static final long serialVersionUID = 1L;

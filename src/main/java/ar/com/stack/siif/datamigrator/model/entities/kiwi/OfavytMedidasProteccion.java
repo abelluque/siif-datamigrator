@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the ofavyt_medidas_proteccion database table.
  * 
  */
-// @Entity
-// @Table(name="ofavyt_medidas_proteccion")
+@Entity
+@Table(name="ofavyt_medidas_proteccion")
 @NamedQuery(name="OfavytMedidasProteccion.findAll", query="SELECT o FROM OfavytMedidasProteccion o")
 public class OfavytMedidasProteccion implements Serializable {
 	private static final long serialVersionUID = 1L;

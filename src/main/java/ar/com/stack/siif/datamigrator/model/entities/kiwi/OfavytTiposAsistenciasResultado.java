@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the ofavyt_tipos_asistencias_resultados database table.
  * 
  */
-// @Entity
-// @Table(name="ofavyt_tipos_asistencias_resultados")
+@Entity
+@Table(name="ofavyt_tipos_asistencias_resultados")
 @NamedQuery(name="OfavytTiposAsistenciasResultado.findAll", query="SELECT o FROM OfavytTiposAsistenciasResultado o")
 public class OfavytTiposAsistenciasResultado implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="oti_code")
 	private int otiCode;
 

@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the sec_acl database table.
  * 
  */
-// @Entity
-// @Table(name="sec_acl")
+@Entity
+@Table(name="sec_acl")
 @NamedQuery(name="SecAcl.findAll", query="SELECT s FROM SecAcl s")
 public class SecAcl implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="acl_code")
 	private int aclCode;
 

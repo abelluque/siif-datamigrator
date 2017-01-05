@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the oci_acta database table.
  * 
  */
-// @Entity
-// @Table(name="oci_acta")
+@Entity
+@Table(name="oci_acta")
 @NamedQuery(name="OciActa.findAll", query="SELECT o FROM OciActa o")
 public class OciActa implements Serializable {
 	private static final long serialVersionUID = 1L;

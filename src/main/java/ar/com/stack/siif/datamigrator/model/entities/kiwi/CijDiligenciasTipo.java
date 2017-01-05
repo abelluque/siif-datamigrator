@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the cij_diligencias_tipos database table.
  * 
  */
-// @Entity
-// @Table(name="cij_diligencias_tipos")
+@Entity
+@Table(name="cij_diligencias_tipos")
 @NamedQuery(name="CijDiligenciasTipo.findAll", query="SELECT c FROM CijDiligenciasTipo c")
 public class CijDiligenciasTipo implements Serializable {
 	private static final long serialVersionUID = 1L;

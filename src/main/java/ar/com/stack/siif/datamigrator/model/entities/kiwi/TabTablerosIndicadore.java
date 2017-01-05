@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the tab_tableros_indicadores database table.
  * 
  */
-// @Entity
-// @Table(name="tab_tableros_indicadores")
+@Entity
+@Table(name="tab_tableros_indicadores")
 @NamedQuery(name="TabTablerosIndicadore.findAll", query="SELECT t FROM TabTablerosIndicadore t")
 public class TabTablerosIndicadore implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="ind_code")
 	private int indCode;
 

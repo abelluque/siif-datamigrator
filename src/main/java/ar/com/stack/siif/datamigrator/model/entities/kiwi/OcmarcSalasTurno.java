@@ -9,8 +9,8 @@ import java.sql.Time;
  * The persistent class for the ocmarc_salas_turnos database table.
  * 
  */
-// @Entity
-// @Table(name="ocmarc_salas_turnos")
+@Entity
+@Table(name="ocmarc_salas_turnos")
 @NamedQuery(name="OcmarcSalasTurno.findAll", query="SELECT o FROM OcmarcSalasTurno o")
 public class OcmarcSalasTurno implements Serializable {
 	private static final long serialVersionUID = 1L;

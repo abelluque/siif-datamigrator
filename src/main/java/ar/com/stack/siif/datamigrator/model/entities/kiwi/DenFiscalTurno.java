@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the den_fiscal_turno database table.
  * 
  */
-// @Entity
-// @Table(name="den_fiscal_turno")
+@Entity
+@Table(name="den_fiscal_turno")
 @NamedQuery(name="DenFiscalTurno.findAll", query="SELECT d FROM DenFiscalTurno d")
 public class DenFiscalTurno implements Serializable {
 	private static final long serialVersionUID = 1L;

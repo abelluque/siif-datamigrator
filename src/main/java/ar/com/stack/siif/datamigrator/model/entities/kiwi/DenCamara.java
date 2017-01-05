@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the den_camaras database table.
  * 
  */
-// @Entity
-// @Table(name="den_camaras")
+@Entity
+@Table(name="den_camaras")
 @NamedQuery(name="DenCamara.findAll", query="SELECT d FROM DenCamara d")
 public class DenCamara implements Serializable {
 	private static final long serialVersionUID = 1L;

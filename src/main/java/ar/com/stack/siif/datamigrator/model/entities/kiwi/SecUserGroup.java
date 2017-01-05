@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the sec_user_groups database table.
  * 
  */
-// @Entity
-// @Table(name="sec_user_groups")
+@Entity
+@Table(name="sec_user_groups")
 @NamedQuery(name="SecUserGroup.findAll", query="SELECT s FROM SecUserGroup s")
 public class SecUserGroup implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="gro_code")
 	private int groCode;
 

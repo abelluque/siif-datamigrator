@@ -10,8 +10,8 @@ import java.util.Date;
  * The persistent class for the utc_cedulas database table.
  * 
  */
-// @Entity
-// @Table(name="utc_cedulas")
+@Entity
+@Table(name="utc_cedulas")
 @NamedQuery(name="UtcCedula.findAll", query="SELECT u FROM UtcCedula u")
 public class UtcCedula implements Serializable {
 	private static final long serialVersionUID = 1L;

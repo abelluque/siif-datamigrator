@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the org_centro_costos database table.
  * 
  */
-// @Entity
-// @Table(name="org_centro_costos")
+@Entity
+@Table(name="org_centro_costos")
 @NamedQuery(name="OrgCentroCosto.findAll", query="SELECT o FROM OrgCentroCosto o")
 public class OrgCentroCosto implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -17,6 +17,7 @@ public class OrgCentroCosto implements Serializable {
 	@Column(name="occ_centro_costo")
 	private int occCentroCosto;
 
+	@Id
 	@Column(name="occ_codigo")
 	private int occCodigo;
 

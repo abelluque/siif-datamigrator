@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the ocmarc_audiencias_personas database table.
  * 
  */
-// @Entity
-// @Table(name="ocmarc_audiencias_personas")
+@Entity
+@Table(name="ocmarc_audiencias_personas")
 @NamedQuery(name="OcmarcAudienciasPersona.findAll", query="SELECT o FROM OcmarcAudienciasPersona o")
 public class OcmarcAudienciasPersona implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -25,6 +25,7 @@ public class OcmarcAudienciasPersona implements Serializable {
 	@Column(name="oap_rol_mediacion")
 	private String oapRolMediacion;
 
+	@Id
 	@Column(name="oca_code")
 	private int ocaCode;
 

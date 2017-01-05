@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the dec_di database table.
  * 
  */
-// @Entity
-// @Table(name="dec_di")
+@Entity
+@Table(name="dec_di")
 @NamedQuery(name="DecDi.findAll", query="SELECT d FROM DecDi d")
 public class DecDi implements Serializable {
 	private static final long serialVersionUID = 1L;

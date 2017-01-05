@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the ori_tipos_inst database table.
  * 
  */
-// @Entity
-// @Table(name="ori_tipos_inst")
+@Entity
+@Table(name="ori_tipos_inst")
 @NamedQuery(name="OriTiposInst.findAll", query="SELECT o FROM OriTiposInst o")
 public class OriTiposInst implements Serializable {
 	private static final long serialVersionUID = 1L;

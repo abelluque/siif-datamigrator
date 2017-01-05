@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the utc_impresoras_zebra database table.
  * 
  */
-// @Entity
-// @Table(name="utc_impresoras_zebra")
+@Entity
+@Table(name="utc_impresoras_zebra")
 @NamedQuery(name="UtcImpresorasZebra.findAll", query="SELECT u FROM UtcImpresorasZebra u")
 public class UtcImpresorasZebra implements Serializable {
 	private static final long serialVersionUID = 1L;

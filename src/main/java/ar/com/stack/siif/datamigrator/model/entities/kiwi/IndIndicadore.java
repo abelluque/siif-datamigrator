@@ -1,22 +1,29 @@
 package ar.com.stack.siif.datamigrator.model.entities.kiwi;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the ind_indicadores database table.
  * 
  */
-// @Entity
-// @Table(name="ind_indicadores")
+@Entity
+@Table(name="ind_indicadores")
 @NamedQuery(name="IndIndicadore.findAll", query="SELECT i FROM IndIndicadore i")
 public class IndIndicadore implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	
 	@Column(name="ind_arc_pentaho")
 	private int indArcPentaho;
 
+	@Id
 	@Column(name="ind_code")
 	private int indCode;
 

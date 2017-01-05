@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the den_categoria_actividades database table.
  * 
  */
-// @Entity
-// @Table(name="den_categoria_actividades")
+@Entity
+@Table(name="den_categoria_actividades")
 @NamedQuery(name="DenCategoriaActividade.findAll", query="SELECT d FROM DenCategoriaActividade d")
 public class DenCategoriaActividade implements Serializable {
 	private static final long serialVersionUID = 1L;

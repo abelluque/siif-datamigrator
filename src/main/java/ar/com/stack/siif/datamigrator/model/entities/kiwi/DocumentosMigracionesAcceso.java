@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the documentos_migraciones_accesos database table.
  * 
  */
-// @Entity
-// @Table(name="documentos_migraciones_accesos")
+@Entity
+@Table(name="documentos_migraciones_accesos")
 @NamedQuery(name="DocumentosMigracionesAcceso.findAll", query="SELECT d FROM DocumentosMigracionesAcceso d")
 public class DocumentosMigracionesAcceso implements Serializable {
 	private static final long serialVersionUID = 1L;

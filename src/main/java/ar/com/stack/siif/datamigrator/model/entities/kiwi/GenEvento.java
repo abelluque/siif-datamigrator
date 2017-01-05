@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the gen_eventos database table.
  * 
  */
-// @Entity
-// @Table(name="gen_eventos")
+@Entity
+@Table(name="gen_eventos")
 @NamedQuery(name="GenEvento.findAll", query="SELECT g FROM GenEvento g")
 public class GenEvento implements Serializable {
 	private static final long serialVersionUID = 1L;

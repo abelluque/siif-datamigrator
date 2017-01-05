@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the doc_tree database table.
  * 
  */
-// @Entity
-// @Table(name="doc_tree")
+@Entity
+@Table(name="doc_tree")
 @NamedQuery(name="DocTree.findAll", query="SELECT d FROM DocTree d")
 public class DocTree implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="acl_code")
 	private int aclCode;
 

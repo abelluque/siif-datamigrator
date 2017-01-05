@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the tab_tableros_permisos database table.
  * 
  */
-// @Entity
-// @Table(name="tab_tableros_permisos")
+@Entity
+@Table(name="tab_tableros_permisos")
 @NamedQuery(name="TabTablerosPermiso.findAll", query="SELECT t FROM TabTablerosPermiso t")
 public class TabTablerosPermiso implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -17,6 +17,7 @@ public class TabTablerosPermiso implements Serializable {
 	@Column(name="gro_code")
 	private int groCode;
 
+	@Id
 	@Column(name="tab_code")
 	private int tabCode;
 

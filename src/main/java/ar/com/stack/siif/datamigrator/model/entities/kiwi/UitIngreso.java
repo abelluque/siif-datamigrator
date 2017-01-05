@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the uit_ingresos database table.
  * 
  */
-// @Entity
-// @Table(name="uit_ingresos")
+@Entity
+@Table(name="uit_ingresos")
 @NamedQuery(name="UitIngreso.findAll", query="SELECT u FROM UitIngreso u")
 public class UitIngreso implements Serializable {
 	private static final long serialVersionUID = 1L;

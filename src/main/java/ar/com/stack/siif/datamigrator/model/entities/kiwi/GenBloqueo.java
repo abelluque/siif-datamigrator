@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the gen_bloqueos database table.
  * 
  */
-// @Entity
-// @Table(name="gen_bloqueos")
+@Entity
+@Table(name="gen_bloqueos")
 @NamedQuery(name="GenBloqueo.findAll", query="SELECT g FROM GenBloqueo g")
 public class GenBloqueo implements Serializable {
 	private static final long serialVersionUID = 1L;

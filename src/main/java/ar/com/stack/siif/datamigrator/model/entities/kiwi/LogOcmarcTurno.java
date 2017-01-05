@@ -10,8 +10,8 @@ import java.util.Date;
  * The persistent class for the log_ocmarc_turnos database table.
  * 
  */
-// @Entity
-// @Table(name="log_ocmarc_turnos")
+@Entity
+@Table(name="log_ocmarc_turnos")
 @NamedQuery(name="LogOcmarcTurno.findAll", query="SELECT l FROM LogOcmarcTurno l")
 public class LogOcmarcTurno implements Serializable {
 	private static final long serialVersionUID = 1L;

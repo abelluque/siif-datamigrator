@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the docum_conexidades database table.
  * 
  */
-// @Entity
-// @Table(name="docum_conexidades")
+@Entity
+@Table(name="docum_conexidades")
 @NamedQuery(name="DocumConexidade.findAll", query="SELECT d FROM DocumConexidade d")
 public class DocumConexidade implements Serializable {
 	private static final long serialVersionUID = 1L;

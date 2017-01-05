@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the ori_institucion_voces database table.
  * 
  */
-// @Entity
-// @Table(name="ori_institucion_voces")
+@Entity
+@Table(name="ori_institucion_voces")
 @NamedQuery(name="OriInstitucionVoce.findAll", query="SELECT o FROM OriInstitucionVoce o")
 public class OriInstitucionVoce implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="oin_code")
 	private int oinCode;
 

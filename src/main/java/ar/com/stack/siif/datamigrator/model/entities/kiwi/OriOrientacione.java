@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the ori_orientaciones database table.
  * 
  */
-// @Entity
-// @Table(name="ori_orientaciones")
+@Entity
+@Table(name="ori_orientaciones")
 @NamedQuery(name="OriOrientacione.findAll", query="SELECT o FROM OriOrientacione o")
 public class OriOrientacione implements Serializable {
 	private static final long serialVersionUID = 1L;

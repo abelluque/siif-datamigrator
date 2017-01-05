@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the cayt_motivo_vista database table.
  * 
  */
-// @Entity
-// @Table(name="cayt_motivo_vista")
+@Entity
+@Table(name="cayt_motivo_vista")
 @NamedQuery(name="CaytMotivoVista.findAll", query="SELECT c FROM CaytMotivoVista c")
 public class CaytMotivoVista implements Serializable {
 	private static final long serialVersionUID = 1L;
