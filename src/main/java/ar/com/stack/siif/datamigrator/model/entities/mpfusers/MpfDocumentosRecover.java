@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the mpf_documentos_recover database table.
  * 
  */
-// @Entity
-// @Table(name="mpf_documentos_recover")
+@Entity
+@Table(name="mpf_documentos_recover")
 @NamedQuery(name="MpfDocumentosRecover.findAll", query="SELECT m FROM MpfDocumentosRecover m")
 public class MpfDocumentosRecover implements Serializable {
 	private static final long serialVersionUID = 1L;

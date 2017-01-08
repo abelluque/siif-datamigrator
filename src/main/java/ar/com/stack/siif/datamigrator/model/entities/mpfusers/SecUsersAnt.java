@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the sec_users_ant database table.
  * 
  */
-// @Entity
-// @Table(name="sec_users_ant")
+@Entity
+@Table(name="sec_users_ant")
 @NamedQuery(name="SecUsersAnt.findAll", query="SELECT s FROM SecUsersAnt s")
 public class SecUsersAnt implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -18,6 +18,7 @@ public class SecUsersAnt implements Serializable {
 	@Column(name="codcli_bej")
 	private String codcliBej;
 
+	@Id
 	@Column(name="gca_code")
 	private int gcaCode;
 

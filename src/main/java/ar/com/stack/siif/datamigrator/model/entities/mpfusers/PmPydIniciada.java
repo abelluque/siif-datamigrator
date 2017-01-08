@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the pm_pyd_iniciadas database table.
  * 
  */
-// @Entity
-// @Table(name="pm_pyd_iniciadas")
+@Entity
+@Table(name="pm_pyd_iniciadas")
 @NamedQuery(name="PmPydIniciada.findAll", query="SELECT p FROM PmPydIniciada p")
 public class PmPydIniciada implements Serializable {
 	private static final long serialVersionUID = 1L;

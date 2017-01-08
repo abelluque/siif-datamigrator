@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the pay_licencias_otorgadas database table.
  * 
  */
-// @Entity
-// @Table(name="pay_licencias_otorgadas")
+@Entity
+@Table(name="pay_licencias_otorgadas")
 @NamedQuery(name="PayLicenciasOtorgada.findAll", query="SELECT p FROM PayLicenciasOtorgada p")
 public class PayLicenciasOtorgada implements Serializable {
 	private static final long serialVersionUID = 1L;

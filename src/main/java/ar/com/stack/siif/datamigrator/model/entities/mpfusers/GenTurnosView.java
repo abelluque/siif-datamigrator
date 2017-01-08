@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the gen_turnos_view database table.
  * 
  */
-// @Entity
-// @Table(name="gen_turnos_view")
+@Entity
+@Table(name="gen_turnos_view")
 @NamedQuery(name="GenTurnosView.findAll", query="SELECT g FROM GenTurnosView g")
 public class GenTurnosView implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -24,6 +24,7 @@ public class GenTurnosView implements Serializable {
 	@Column(name="defensoria_direccion")
 	private String defensoriaDireccion;
 
+	@Id
 	@Column(name="defensoria_id")
 	private String defensoriaId;
 

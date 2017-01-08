@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the pm_legajos_economicos_tramites database table.
  * 
  */
-// @Entity
-// @Table(name="pm_legajos_economicos_tramites")
+@Entity
+@Table(name="pm_legajos_economicos_tramites")
 @NamedQuery(name="PmLegajosEconomicosTramite.findAll", query="SELECT p FROM PmLegajosEconomicosTramite p")
 public class PmLegajosEconomicosTramite implements Serializable {
 	private static final long serialVersionUID = 1L;

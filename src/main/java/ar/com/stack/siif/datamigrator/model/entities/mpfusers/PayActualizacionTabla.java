@@ -9,8 +9,8 @@ import java.sql.Timestamp;
  * The persistent class for the pay_actualizacion_tablas database table.
  * 
  */
-// @Entity
-// @Table(name="pay_actualizacion_tablas")
+@Entity
+@Table(name="pay_actualizacion_tablas")
 @NamedQuery(name="PayActualizacionTabla.findAll", query="SELECT p FROM PayActualizacionTabla p")
 public class PayActualizacionTabla implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -18,6 +18,7 @@ public class PayActualizacionTabla implements Serializable {
 	@Column(name="fecha_actualizacion")
 	private Timestamp fechaActualizacion;
 
+	@Id
 	private String tabla;
 
 	public PayActualizacionTabla() {

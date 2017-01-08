@@ -9,12 +9,13 @@ import java.sql.Timestamp;
  * The persistent class for the pm_importa_usuarios_incidentes database table.
  * 
  */
-// @Entity
-// @Table(name="pm_importa_usuarios_incidentes")
+@Entity
+@Table(name="pm_importa_usuarios_incidentes")
 @NamedQuery(name="PmImportaUsuariosIncidente.findAll", query="SELECT p FROM PmImportaUsuariosIncidente p")
 public class PmImportaUsuariosIncidente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	private String codigo;
 
 	private String codigoerr;

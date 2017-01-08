@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the gen_botones_acciones database table.
  * 
  */
-// @Entity
-// @Table(name="gen_botones_acciones")
+@Entity
+@Table(name="gen_botones_acciones")
 @NamedQuery(name="GenBotonesAcciones.findAll", query="SELECT g FROM GenBotonesAcciones g")
 public class GenBotonesAcciones implements Serializable {
 	private static final long serialVersionUID = 1L;

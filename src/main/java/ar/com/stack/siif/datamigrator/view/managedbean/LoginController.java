@@ -9,6 +9,7 @@ import javax.faces.bean.ViewScoped;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import ar.com.stack.siif.datamigrator.model.entities.EntityPackageName;
 import ar.com.stack.siif.datamigrator.model.services.DataImporterService;
 import ar.com.stack.siif.datamigrator.model.services.DataImporterServiceImpl;
 import ar.com.stack.siif.datamigrator.model.services.TableMappingsService;
@@ -28,11 +29,8 @@ public class LoginController implements Serializable {
 	private String userName;
 	private String password;
 
-	// DATA IMPORTER
 	private ClassPathXmlApplicationContext appContext;
-
 	private DataImporterService dataImporter;
-	//@Autowired
 	private TableMappingsService mappingService;
 
 	private List<String> mpfusersTables = new ArrayList<>();
@@ -77,15 +75,14 @@ public class LoginController implements Serializable {
 	}
 
 	/**
-	 * Se conecta a la BB.DD 'SIIF' y levanta la data de la tabla de prueba
-	 * 'Person'.
+	 * Se conecta a la BB.DD 'SIIF' y levanta la data de la tabla de prueba 'Person'.
 	 */
 	public String importDbInfo() {
 
-		importData("mpfusers");
-		//importData("kiwi");
-
-		return null; //"succes";
+		importData(EntityPackageName.MPF_USERS.getDbName());
+		importData(EntityPackageName.KIWI.getDbName());
+		
+		return "succes"; //"succes";
 	}
 
 	private void importData(String dataBaseName) {
@@ -105,22 +102,14 @@ public class LoginController implements Serializable {
 		}
 		System.out.println("Total:   " + i + " tablas en '" + dbName + "'.");
 
-		//		SOLO PRUEBO CON LA TABLA ´aux_apellidos´ 
-		//		for (String tableName : mpfusersTables) {
-		//			dataImporter.importTableData(dbName, tableName);
-		//		}
-
-		//		dataImporter.importTableData("mpfusers", "aux_apellidos");
-		//		dataImporter.importTableData("mpfusers", "avi_servers");
-		//		dataImporter.importTableData("mpfusers", "cat_value_list");
-
-		dataImporter.importTableData("mpfusers", "alm_almacenes");
+		for (String tableName : mpfusersTables) {
+			dataImporter.importTableData(dbName, tableName);
+		}
 
 	}
 
 	/**
-	 * Genera el mapeo entre Tablas y Entidades, para persistirlo en
-	 * SIIF.TABLES_MAPPINGS
+	 * Genera el mapeo entre Tablas y Entidades, para persistirlo en SIIF.TABLES_MAPPINGS
 	 * 
 	 * @return
 	 */

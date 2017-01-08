@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the pm_licencias_capacitacion database table.
  * 
  */
-// @Entity
-// @Table(name="pm_licencias_capacitacion")
+@Entity
+@Table(name="pm_licencias_capacitacion")
 @NamedQuery(name="PmLicenciasCapacitacion.findAll", query="SELECT p FROM PmLicenciasCapacitacion p")
 public class PmLicenciasCapacitacion implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -9,12 +9,13 @@ import java.sql.Timestamp;
  * The persistent class for the gen_controla_licencias_incidentes database table.
  * 
  */
-// @Entity
-// @Table(name="gen_controla_licencias_incidentes")
+@Entity
+@Table(name="gen_controla_licencias_incidentes")
 @NamedQuery(name="GenControlaLicenciasIncidente.findAll", query="SELECT g FROM GenControlaLicenciasIncidente g")
 public class GenControlaLicenciasIncidente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	private String codigo;
 
 	private String descripcion;

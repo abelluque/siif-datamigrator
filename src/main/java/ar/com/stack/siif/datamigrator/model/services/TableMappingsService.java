@@ -8,6 +8,8 @@ public interface TableMappingsService {
 	
 	public Collection<TableMapping> findAll();
 	
+	public Collection<TableMapping> findByDBName(String dbName);
+	
 	public void generateTableMappings();
 
 }

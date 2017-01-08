@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the gen_turnos_juzgados database table.
  * 
  */
-// @Entity
-// @Table(name="gen_turnos_juzgados")
+@Entity
+@Table(name="gen_turnos_juzgados")
 @NamedQuery(name="GenTurnosJuzgado.findAll", query="SELECT g FROM GenTurnosJuzgado g")
 public class GenTurnosJuzgado implements Serializable {
 	private static final long serialVersionUID = 1L;

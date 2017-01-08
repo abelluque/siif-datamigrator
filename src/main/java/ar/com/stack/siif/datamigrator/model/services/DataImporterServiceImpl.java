@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,10 +12,13 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.stack.siif.datamigrator.model.entities.DataImport;
+import ar.com.stack.siif.datamigrator.model.entities.EntityPackageName;
+import ar.com.stack.siif.datamigrator.model.entities.TableMapping;
 
 @Transactional("siifTrxManager")
 @Component
@@ -25,6 +29,9 @@ public class DataImporterServiceImpl implements DataImporterService {
 
 	@PersistenceContext(unitName = "mpfUsers-pu")
 	private EntityManager mpfUsersEntityManager;
+
+	private ClassPathXmlApplicationContext appContext;
+	private TableMappingsService mappingService;
 
 	private List<DataImport> dataToPersist;
 	private Type jsonTokenPedidoResultadoMotivos;
@@ -40,7 +47,9 @@ public class DataImporterServiceImpl implements DataImporterService {
 
 	public DataImporterServiceImpl() {
 
-		initMappedClasses();
+		super();
+
+		//		initMappedClasses();
 
 	}
 
@@ -49,16 +58,64 @@ public class DataImporterServiceImpl implements DataImporterService {
 	 */
 	private void initMappedClasses() {
 
-		mpfUsersMappedClasses = new HashMap<String, String>();
-		mpfUsersMappedClasses.put("aux_apellidos", "AuxApellido");
-		mpfUsersMappedClasses.put("aux_nombres_fem", "AuxNombresFem");
-		mpfUsersMappedClasses.put("cat_value_list", "CatValueList");
-		mpfUsersMappedClasses.put("avi_servers", "AviServer");
-		mpfUsersMappedClasses.put("alm_almacenes", "AlmAlmacen");
+		System.out.println("Inicializo el mapeo...");
+		
+		Collection<TableMapping> mapeos;
+		mappingService = getMappingService();
 
-		kiwiMappedClasses = new HashMap<String, String>();
-		kiwiMappedClasses.put("cat_value_list", "CatValueList");
+		if (mpfUsersMappedClasses == null) {
 
+			mpfUsersMappedClasses = new HashMap<String, String>();
+			System.out.println("\n\n  Obtengo los mapeos de " + EntityPackageName.MPF_USERS.getDbName());
+
+			//		mpfUsersMappedClasses.put("aux_apellidos", "AuxApellido");
+			//		mpfUsersMappedClasses.put("aux_nombres_fem", "AuxNombresFem");
+			//		mpfUsersMappedClasses.put("cat_value_list", "CatValueList");
+			//		mpfUsersMappedClasses.put("avi_servers", "AviServer");
+			//		mpfUsersMappedClasses.put("alm_almacenes", "AlmAlmacen");
+			mapeos = mappingService.findByDBName(EntityPackageName.MPF_USERS.getDbName());
+
+			for (TableMapping tableMapping : mapeos) {
+
+				mpfUsersMappedClasses.put(tableMapping.getTableName(), tableMapping.getClassName());
+				System.out
+						.println("\tAgergué mapeo: " + tableMapping.getTableName() + " -> " + tableMapping.getClassName());
+			}
+		}
+
+		if (kiwiMappedClasses == null) {
+
+			kiwiMappedClasses = new HashMap<String, String>();
+			//		kiwiMappedClasses.put("cat_value_list", "CatValueList");
+
+			System.out.println("\n\n  Obtengo los mapeos de " + EntityPackageName.KIWI.getDbName());
+			mapeos = null;
+			mapeos = mappingService.findByDBName(EntityPackageName.KIWI.getDbName());
+
+			for (TableMapping tableMapping : mapeos) {
+
+				kiwiMappedClasses.put(tableMapping.getTableName(), tableMapping.getClassName());
+				System.out
+						.println("\tAgergué mapeo: " + tableMapping.getTableName() + " -> " + tableMapping.getClassName());
+			}
+		}
+
+	}
+
+	private TableMappingsService getMappingService() {
+
+		if (mappingService == null) {
+
+			if (appContext == null) {
+				System.out.println("Obtengo el applicationContext!");
+				appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+			}
+
+			System.out.println("Inyecto el mappingService!!");
+			mappingService = appContext.getBean(TableMappingsService.class);
+		}
+
+		return mappingService;
 	}
 
 	public List<Object[]> findAllDbTables(String dbName) {
@@ -75,6 +132,8 @@ public class DataImporterServiceImpl implements DataImporterService {
 	}
 
 	public void importTableData(String dbName, String tableName) {
+
+		initMappedClasses();
 
 		String fullTableName = new String(dbName + "." + tableName);
 		System.out.println("Import data de: " + fullTableName);
@@ -156,8 +215,8 @@ public class DataImporterServiceImpl implements DataImporterService {
 	}
 
 	/**
-	 * Crea el objeto que se va a persistir, en formato JSON. Para ello necesita
-	 * obtener la clase que mapea a la tabla en cuestion.
+	 * Crea el objeto que se va a persistir, en formato JSON. Para ello necesita obtener la clase que mapea a la tabla
+	 * en cuestion.
 	 * 
 	 * @param dbName
 	 * @param tableName
@@ -218,20 +277,22 @@ public class DataImporterServiceImpl implements DataImporterService {
 			throw new Exception("Datos obligatorios no válidos: dbName=" + dbName + ", tableName=" + tableName);
 		}
 
-		String packageName = null;
+		//String packageName = null;
 		String className = null;
 
 		if (DB_NAME_MPF_USERS.equals(dbName)) {
-			packageName = MPF_USERS_ENTITIES_PACKAGE_NAME;
+			//packageName = MPF_USERS_ENTITIES_PACKAGE_NAME;
 			className = mpfUsersMappedClasses.get(tableName);
 
 		} else if (DB_NAME_KIWI.equals(dbName)) {
-			packageName = KIWI_ENTITIES_PACKAGE_NAME;
+			//packageName = KIWI_ENTITIES_PACKAGE_NAME;
 			className = kiwiMappedClasses.get(tableName);
 		}
 
-		Class clazz = Class.forName(packageName + "." + className);
-		System.out.println("Se obtuvo la clase:" + packageName + className);
+		//Class clazz = Class.forName(packageName + "." + className);
+		System.out.println("Hago el Class.forName para: " +dbName + " / " + tableName + " / "+ className);
+		Class clazz = Class.forName(className);
+		System.out.println("Se obtuvo la clase:" + clazz.getName());
 		return clazz;
 	}
 

@@ -8,14 +8,15 @@ import javax.persistence.*;
  * The persistent class for the pay_tablas database table.
  * 
  */
-// @Entity
-// @Table(name="pay_tablas")
+@Entity
+@Table(name="pay_tablas")
 @NamedQuery(name="PayTabla.findAll", query="SELECT p FROM PayTabla p")
 public class PayTabla implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String codAl;
 
+	@Id
 	private int codigo;
 
 	private int cotab;

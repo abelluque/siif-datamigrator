@@ -8,8 +8,8 @@ import javax.persistence.*;
  * The persistent class for the gen_users_adic_ctl database table.
  * 
  */
-// @Entity
-// @Table(name="gen_users_adic_ctl")
+@Entity
+@Table(name="gen_users_adic_ctl")
 @NamedQuery(name="GenUsersAdicCtl.findAll", query="SELECT g FROM GenUsersAdicCtl g")
 public class GenUsersAdicCtl implements Serializable {
 	private static final long serialVersionUID = 1L;

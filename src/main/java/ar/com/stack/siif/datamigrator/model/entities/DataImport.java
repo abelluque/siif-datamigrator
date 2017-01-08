@@ -32,12 +32,15 @@ public class DataImport implements Serializable {
 
 	@Column
 	private String dbName;
+	
 	@Column
 	private String tableName;
+	
 	@Column
 	private Long lastIdImported;
+	
 	@Column
-	private String row;
+	private String informacion;
 
 	public DataImport() {
 	}
@@ -48,7 +51,7 @@ public class DataImport implements Serializable {
 		this.tableName = table;
 		this.lastIdImported = lastIdImported;
 
-		this.row = new Gson().toJson(row);
+		this.informacion = new Gson().toJson(row);
 		
 		this.creationDate = new Date();
 		this.modificationDate = new Date();
@@ -60,7 +63,7 @@ public class DataImport implements Serializable {
 		this.tableName = table;
 		this.lastIdImported = lastIdImported;
 
-		this.row = new Gson().toJson(row);
+		this.informacion = new Gson().toJson(row);
 		
 		this.creationDate = new Date();
 		this.modificationDate = new Date();
@@ -98,12 +101,12 @@ public class DataImport implements Serializable {
 		this.lastIdImported = lastIdImported;
 	}
 
-	public String getRow() {
-		return row;
+	public String getInformacion() {
+		return informacion;
 	}
 
-	public void setRow(String row) {
-		this.row = row;
+	public void setInformacion(String info) {
+		this.informacion = info;
 	}
 
 	public Date getCreationDate() {
@@ -131,7 +134,7 @@ public class DataImport implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((lastIdImported == null) ? 0 : lastIdImported.hashCode());
 		result = prime * result + ((modificationDate == null) ? 0 : modificationDate.hashCode());
-		result = prime * result + ((row == null) ? 0 : row.hashCode());
+		result = prime * result + ((informacion == null) ? 0 : informacion.hashCode());
 		result = prime * result + ((tableName == null) ? 0 : tableName.hashCode());
 		return result;
 	}
@@ -170,10 +173,10 @@ public class DataImport implements Serializable {
 				return false;
 		} else if (!modificationDate.equals(other.modificationDate))
 			return false;
-		if (row == null) {
-			if (other.row != null)
+		if (informacion == null) {
+			if (other.informacion != null)
 				return false;
-		} else if (!row.equals(other.row))
+		} else if (!informacion.equals(other.informacion))
 			return false;
 		if (tableName == null) {
 			if (other.tableName != null)
@@ -186,8 +189,8 @@ public class DataImport implements Serializable {
 	@Override
 	public String toString() {
 		return "DataImport [id=" + id + ", creationDate=" + creationDate + ", modificationDate=" + modificationDate
-				+ ", dbName=" + dbName + ", tableName=" + tableName + ", lastIdImported=" + lastIdImported + ", row="
-				+ row + "]";
+				+ ", dbName=" + dbName + ", tableName=" + tableName + ", lastIdImported=" + lastIdImported + ", informacion="
+				+ informacion + "]";
 	}
 
 }

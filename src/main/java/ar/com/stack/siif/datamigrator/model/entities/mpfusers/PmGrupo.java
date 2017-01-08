@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the pm_grupos database table.
  * 
  */
-// @Entity
-// @Table(name="pm_grupos")
+@Entity
+@Table(name="pm_grupos")
 @NamedQuery(name="PmGrupo.findAll", query="SELECT p FROM PmGrupo p")
 public class PmGrupo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="pm_grupouid")
 	private String pmGrupouid;
 

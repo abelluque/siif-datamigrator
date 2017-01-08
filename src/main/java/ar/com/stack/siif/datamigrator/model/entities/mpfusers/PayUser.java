@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the pay_users database table.
  * 
  */
-// @Entity
-// @Table(name="pay_users")
+@Entity
+@Table(name="pay_users")
 @NamedQuery(name="PayUser.findAll", query="SELECT p FROM PayUser p")
 public class PayUser implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -27,6 +27,7 @@ public class PayUser implements Serializable {
 
 	private int clasif;
 
+	@Id
 	private String codigo;
 
 	private String direccion;

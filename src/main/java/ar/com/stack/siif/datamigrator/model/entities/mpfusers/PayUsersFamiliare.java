@@ -9,14 +9,15 @@ import java.util.Date;
  * The persistent class for the pay_users_familiares database table.
  * 
  */
-// @Entity
-// @Table(name="pay_users_familiares")
+@Entity
+@Table(name="pay_users_familiares")
 @NamedQuery(name="PayUsersFamiliare.findAll", query="SELECT p FROM PayUsersFamiliare p")
 public class PayUsersFamiliare implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String apc;
 
+	@Id
 	private String codigo;
 
 	private int curso;

@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the pay_dias_tomados database table.
  * 
  */
-// @Entity
-// @Table(name="pay_dias_tomados")
+@Entity
+@Table(name="pay_dias_tomados")
 @NamedQuery(name="PayDiasTomado.findAll", query="SELECT p FROM PayDiasTomado p")
 public class PayDiasTomado implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="gcc_code")
 	private int gccCode;
 

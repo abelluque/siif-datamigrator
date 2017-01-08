@@ -9,8 +9,8 @@ import java.util.Date;
  * The persistent class for the pm_legajos_economicos database table.
  * 
  */
-// @Entity
-// @Table(name="pm_legajos_economicos")
+@Entity
+@Table(name="pm_legajos_economicos")
 @NamedQuery(name="PmLegajosEconomico.findAll", query="SELECT p FROM PmLegajosEconomico p")
 public class PmLegajosEconomico implements Serializable {
 	private static final long serialVersionUID = 1L;

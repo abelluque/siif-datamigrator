@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -33,8 +34,8 @@ public class TableMappingsServiceImpl implements TableMappingsService {
 	private final String KIWI_ENTITIES_PACKAGE_NAME = "ar.com.stack.siif.datamigrator.model.entities.kiwi";
 	
 	public Collection<TableMapping> tableMappingExistentes = new ArrayList<TableMapping>();
-	public static Map<String, String> mpfUsersEntityMappings;
-	public static Map<String, String> kiwiEntityMappings;
+	public static Map<String, Class> mpfUsersEntityMappings;
+	public static Map<String, Class> kiwiEntityMappings;
 
 	public TableMappingsServiceImpl() {
 
@@ -55,16 +56,36 @@ public class TableMappingsServiceImpl implements TableMappingsService {
 	 */
 	private void initEntityMappings() {
 
-		mpfUsersEntityMappings = new HashMap<String, String>();
-		kiwiEntityMappings = new HashMap<String, String>();
+		mpfUsersEntityMappings = new HashMap<String, Class>();
+		kiwiEntityMappings = new HashMap<String, Class>();
 		
 	}
 	
 	@Override
 	public Collection<TableMapping> findAll() {
+		
 
-		System.out.println("Ejecutando el findAll de TableMappingsServiceImpl!!!! ");
+		System.out.println("Ejecutando el findAll de TableMappingsServiceImpl: NO ESTÁ IMPLEMENTADO !!!! ");
 		return null;
+	}
+	
+	@Override
+	public Collection<TableMapping> findByDBName(String dbName) {
+
+		System.out.println("Ejecutando el findByDBName de TableMappingsServiceImpl !!!! ");
+		Collection<TableMapping> mapeos = new ArrayList<TableMapping>();
+		
+		Query query = siifEntityManager.createNamedQuery(TableMapping.findByDBName);
+		query.setParameter("dbName", dbName);
+
+		try {
+			mapeos = (List<TableMapping>) query.getResultList();
+			
+		} catch (Exception e) {
+
+		}
+		
+		return mapeos;
 	}
 	
 	/**
@@ -113,10 +134,10 @@ public class TableMappingsServiceImpl implements TableMappingsService {
 							Object value = method.invoke(annotation, (Object[]) null);
 
 							if (DB_NAME_MPF_USERS.equals(dbName)) {
-								mpfUsersEntityMappings.put(value.toString(), entityClass.getCanonicalName());
+								mpfUsersEntityMappings.put(value.toString(), entityClass);
 							
 							} else {
-								kiwiEntityMappings.put(value.toString(), entityClass.getCanonicalName());
+								kiwiEntityMappings.put(value.toString(), entityClass);
 							}
 						}
 					}
@@ -128,34 +149,6 @@ public class TableMappingsServiceImpl implements TableMappingsService {
 		}
 	}
 
-	/** 
-	 * Persiste el mapeo de Tablas/Entities 
-	 */
-	private void persistEntityMappings() {
-
-		System.out.println("\nMapeo Final... ");
-		TableMapping currentMapping;
-		
-		for (Map.Entry<String, String> entry : mpfUsersEntityMappings.entrySet()) {
-			
-			System.out.println("\tTable=" + entry.getKey() + ", \tEntity=" + entry.getValue());
-			
-			currentMapping = getTableMappingByName(DB_NAME_MPF_USERS, entry.getKey(), entry.getValue());
-			siifEntityManager.merge(currentMapping);
-		}
-		
-		
-		for (Map.Entry<String, String> entry : kiwiEntityMappings.entrySet()) {
-			
-			System.out.println("\tTable=" + entry.getKey() + ", \tEntity=" + entry.getValue());
-			
-			currentMapping = getTableMappingByName(DB_NAME_KIWI, entry.getKey(), entry.getValue());
-			siifEntityManager.merge(currentMapping);
-		}
-		
-		
-	}
-
 	/**
 	 * Busca un tableMapping ya existente para actualizar, si no lo encuentra crea uno nuevo. 
 	 * @param dbName
@@ -163,7 +156,7 @@ public class TableMappingsServiceImpl implements TableMappingsService {
 	 * @param entityClassName
 	 * @return
 	 */
-	private TableMapping getTableMappingByName(String dbName, String tableName, String entityClassName) {
+	private TableMapping getTableMappingByName(String dbName, String tableName, Class entityClass) {
 
 		TableMapping result = null;
 		
@@ -180,9 +173,37 @@ public class TableMappingsServiceImpl implements TableMappingsService {
 		}
 		
 		if (result == null) {
-			result = new TableMapping(dbName, tableName, entityClassName);
+			result = new TableMapping(dbName, tableName, entityClass);
 		}
 		
 		return result;
+	}
+	
+	/** 
+	 * Persiste el mapeo de Tablas/Entities 
+	 */
+	private void persistEntityMappings() {
+
+		System.out.println("\nMapeo Final... ");
+		TableMapping currentMapping;
+		
+		for (Map.Entry<String, Class> entry : mpfUsersEntityMappings.entrySet()) {
+			
+			System.out.println("\tTable=" + entry.getKey() + ", \tEntity=" + entry.getValue());
+			
+			currentMapping = getTableMappingByName(DB_NAME_MPF_USERS, entry.getKey(), entry.getValue());
+			siifEntityManager.merge(currentMapping);
+		}
+		
+		
+		for (Map.Entry<String, Class> entry : kiwiEntityMappings.entrySet()) {
+			
+			System.out.println("\tTable=" + entry.getKey() + ", \tEntity=" + entry.getValue());
+			
+			currentMapping = getTableMappingByName(DB_NAME_KIWI, entry.getKey(), entry.getValue());
+			siifEntityManager.merge(currentMapping);
+		}
+		
+		
 	}
 }

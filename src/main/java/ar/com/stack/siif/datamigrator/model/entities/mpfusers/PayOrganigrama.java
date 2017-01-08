@@ -8,12 +8,13 @@ import javax.persistence.*;
  * The persistent class for the pay_organigrama database table.
  * 
  */
-// @Entity
-// @Table(name="pay_organigrama")
+@Entity
+@Table(name="pay_organigrama")
 @NamedQuery(name="PayOrganigrama.findAll", query="SELECT p FROM PayOrganigrama p")
 public class PayOrganigrama implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	private String codres;
 
 	private int depe;

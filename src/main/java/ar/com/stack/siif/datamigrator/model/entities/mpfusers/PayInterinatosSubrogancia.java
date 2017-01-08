@@ -9,14 +9,15 @@ import java.util.Date;
  * The persistent class for the pay_interinatos_subrogancias database table.
  * 
  */
-// @Entity
-// @Table(name="pay_interinatos_subrogancias")
+@Entity
+@Table(name="pay_interinatos_subrogancias")
 @NamedQuery(name="PayInterinatosSubrogancia.findAll", query="SELECT p FROM PayInterinatosSubrogancia p")
 public class PayInterinatosSubrogancia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int actual;
 
+	@Id
 	private int campoid;
 
 	private int codigo;
