@@ -29,6 +29,14 @@
 		<qualifier value="mpfUsersTrxManager" />
 	</bean>
 
+	<!-- TransactionManager for KIWI -->
+	<bean id="kiwiTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="kiwiEntityManagerFactory" />
+		<qualifier value="kiwiTrxManager" />
+	</bean>
+
+
+
 	<!-- EntityManagerFactory for SIIF -->
 	<bean id="siifEntityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -51,7 +59,7 @@
 	<!-- EntityManagerFactory for MPFUsers -->
 	<bean id="mpfUsersEntityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="dataSource" ref="siifDataSource" />
+		<property name="dataSource" ref="mpfUsersDataSource" />
 		<property name="persistenceUnitName" value="mpfUsers-pu" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
@@ -66,14 +74,34 @@
 			</props>
 		</property>
 	</bean>
+	
+	<!-- EntityManagerFactory for KIWI -->
+	<bean id="kiwiEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="kiwiDataSource" />
+		<property name="persistenceUnitName" value="kiwi-pu" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<!-- prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
 
+	<!-- DATASOURCES  -->
 	<bean id="siifDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName">
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
 		<property name="url">
-			<value>jdbc:mysql://localhost:3306/siif</value>
+			<value>jdbc:mysql://localhost:3306/siif?autoReconnect=true&amp;useSSL=false</value>
 		</property>
 		<property name="username">
 			<value>root</value>
@@ -83,8 +111,37 @@
 		</property>
 	</bean>
 
+	<bean id="mpfUsersDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/mpfusers?autoReconnect=true&amp;useSSL=false</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>admin</value>
+		</property>
+	</bean>
 
-
+	<bean id="kiwiDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/kiwi?autoReconnect=true&amp;useSSL=false</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>admin</value>
+		</property>
+	</bean>
 
 
 </beans>

@@ -49,8 +49,7 @@ public class DataImporterServiceImpl implements DataImporterService {
 
 		super();
 
-		//		initMappedClasses();
-
+		//	initMappedClasses();
 	}
 
 	/**
@@ -155,8 +154,15 @@ public class DataImporterServiceImpl implements DataImporterService {
 			Class entityClass = getClassForTable(dbName, tableName);
 			String query = new String("SELECT e FROM " + entityClass.getSimpleName() + " e ");
 
-			rows.addAll(siifEntityManager.createQuery(query).getResultList());
-
+			if (EntityPackageName.MPF_USERS.getDbName().equals(dbName)) {
+				rows.addAll(mpfUsersEntityManager.createQuery(query).getResultList());
+				
+			} else if (EntityPackageName.KIWI.getDbName().equals(dbName)) {
+				
+			} else {
+				rows.addAll(siifEntityManager.createQuery(query).getResultList());
+			}
+				
 			for (Object object : rows) {
 				System.out.println(" Object ==>> " + object);
 			}

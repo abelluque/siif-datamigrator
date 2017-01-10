@@ -20,4 +20,13 @@
 
 	</persistence-unit>
 
+	<persistence-unit name="kiwi-pu" transaction-type="RESOURCE_LOCAL">
+		<description>
+            Persistence unit for KIWI
+        </description>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+	</persistence-unit>
+
+
 </persistence>

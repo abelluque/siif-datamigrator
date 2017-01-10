@@ -2,6 +2,7 @@ package ar.com.stack.siif.datamigrator.view.managedbean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -10,6 +11,7 @@ import javax.faces.bean.ViewScoped;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import ar.com.stack.siif.datamigrator.model.entities.EntityPackageName;
+import ar.com.stack.siif.datamigrator.model.entities.TableMapping;
 import ar.com.stack.siif.datamigrator.model.services.DataImporterService;
 import ar.com.stack.siif.datamigrator.model.services.DataImporterServiceImpl;
 import ar.com.stack.siif.datamigrator.model.services.TableMappingsService;
@@ -33,8 +35,7 @@ public class LoginController implements Serializable {
 	private DataImporterService dataImporter;
 	private TableMappingsService mappingService;
 
-	private List<String> mpfusersTables = new ArrayList<>();
-	private List<String> kiwiTables = new ArrayList<>();
+	private List<String> tablesToImport = new ArrayList<>();
 
 	public LoginController() {
 
@@ -80,30 +81,38 @@ public class LoginController implements Serializable {
 	public String importDbInfo() {
 
 		importData(EntityPackageName.MPF_USERS.getDbName());
-		importData(EntityPackageName.KIWI.getDbName());
+		//importData(EntityPackageName.KIWI.getDbName());
 		
-		return "succes"; //"succes";
+		return null; // "succes";
 	}
 
 	private void importData(String dataBaseName) {
-		String dbName = dataBaseName;
-		System.out.println("Obtengo las tablas de '" + dbName + "'...");
-		List<Object[]> tablas = dataImporter.findAllDbTables(dbName);
+		
+		System.out.println("Obtengo las tablas de '" + dataBaseName + "'...");
+		//List<Object[]> tablas = dataImporter.findAllDbTables(dbName);
 
-		for (Object[] tablaDesc : tablas) {
-			String tableName = (String) tablaDesc[0];
-			mpfusersTables.add(tableName);
-		}
-
-		System.out.println("Listado de tablas encontradas para " + dbName);
+		//		for (Object[] tablaDesc : tablas) {
+		//			String tableName = (String) tablaDesc[0];
+		//			mpfusersTables.add(tableName);
+		//		}
+		
+		
+		Collection<TableMapping> mapeos = mappingService.findByDBName(dataBaseName);
+		
 		int i = 0;
-		for (String mpfusersTable : mpfusersTables) {
-			System.out.println(++i + ") " + mpfusersTable);
-		}
-		System.out.println("Total:   " + i + " tablas en '" + dbName + "'.");
+		for (TableMapping tableMapping : mapeos) {
+			
+			String tableName = tableMapping.getTableName();
 
-		for (String tableName : mpfusersTables) {
-			dataImporter.importTableData(dbName, tableName);
+			System.out.println("\t tablesToImport.add: " + tableName);
+			tablesToImport.add(tableName);
+			
+			System.out.println(++i + ") " + tableName);
+		}
+		
+		System.out.println("Se hará el import de " + tablesToImport.size() + " tablas de '" + dataBaseName+ "'");
+		for (String tableName : tablesToImport) {
+			dataImporter.importTableData(dataBaseName, tableName);
 		}
 
 	}
