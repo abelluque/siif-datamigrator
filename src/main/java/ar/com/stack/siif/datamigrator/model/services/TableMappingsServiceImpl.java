@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -20,6 +22,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.stack.siif.datamigrator.model.entities.TableMapping;
 
+@ManagedBean(name = "causesService")
+@ApplicationScoped
 @Transactional("siifTrxManager")
 @Component
 public class TableMappingsServiceImpl implements TableMappingsService {

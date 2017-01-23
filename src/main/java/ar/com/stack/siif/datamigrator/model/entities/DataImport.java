@@ -8,18 +8,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import com.google.gson.Gson;
 
 @Entity
 @Table(name = "Data_Import", schema = "siif")
+@NamedQueries({ @NamedQuery(name = DataImport.findAll, query = "SELECT e FROM DataImport e ") })
 public class DataImport implements Serializable {
 
-	/**
-	 * Default serial version.
-	 */
 	private static final long serialVersionUID = 1L;
+	public static final String findAll = "DataImport.findAll";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

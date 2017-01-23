@@ -23,7 +23,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Tables_mappings", schema = "siif")
 @NamedQueries({ @NamedQuery(name = TableMapping.findAll, query = "SELECT e FROM TableMapping e "),
-		@NamedQuery(name = TableMapping.findByDBName, query = "SELECT e FROM TableMapping e WHERE e.dbName = :dbName"),
+		@NamedQuery(name = TableMapping.findByDBName, query = "SELECT e FROM TableMapping e WHERE e.dbName = :dbName ORDER BY e.tableName"),
 		@NamedQuery(name = TableMapping.findByTableAndDBName, query = "SELECT e FROM TableMapping e WHERE e.tableName = :tableName AND e.dbName = :dbName") })
 public class TableMapping implements Serializable {
 

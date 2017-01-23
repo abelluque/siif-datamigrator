@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -36,16 +37,28 @@ public class LoginController implements Serializable {
 	private TableMappingsService mappingService;
 
 	private List<String> tablesToImport = new ArrayList<>();
+	private Collection<TableMapping> mpfusersTMList;
 
 	public LoginController() {
 
 		super();
-		appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-
-		dataImporter = appContext.getBean(DataImporterService.class);
-		mappingService = appContext.getBean(TableMappingsService.class);
-
+		
+//		System.out.println("Obtengo el applicationContext.xml ...");
+//		appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+//
+//		System.out.println("Obtengo los services ...");
+//		dataImporter = appContext.getBean(DataImporterService.class);
+//		mappingService = appContext.getBean(TableMappingsService.class);
+//
+//		System.out.println("Inicializo mpfusersTMList ...");
+//		mpfusersTMList = mappingService.findByDBName(EntityPackageName.MPF_USERS.getDbName());
+		
 	}
+	
+	@PostConstruct
+    public void init() {
+		System.out.println("Ejecuto el PostConstruct [LoginController.init()] ...");
+    }
 
 	public String getUserName() {
 		return userName;

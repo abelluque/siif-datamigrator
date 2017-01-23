@@ -315,4 +315,11 @@ public class DataImporterServiceImpl implements DataImporterService {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<DataImport> findDataImported(String dbName, String tableName) {
+
+		return siifEntityManager.createNamedQuery(DataImport.findAll).getResultList();
+	}
+
 }

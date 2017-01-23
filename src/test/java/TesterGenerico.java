@@ -1,6 +1,7 @@
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -13,7 +14,17 @@ public class TesterGenerico {
 	public static Map<String, String> entityMappings = new HashMap<String, String>();
 
 	public static void main(String[] args) {
+		
+		Date fInicio = new Date();
+		Date fFin = new Date();
+		
+		System.out.println("F_INICIO: " + fInicio + ", F_FIN: " + fFin);
+		
+		//testScanIdColumns();
 
+	}
+
+	private static void testScanIdColumns() {
 		Set<Class<?>> myEntities = reff.getTypesAnnotatedWith(javax.persistence.Entity.class);
 
 		for (Class<?> entityClass : myEntities) {
@@ -26,7 +37,6 @@ public class TesterGenerico {
 		//		for (Map.Entry<String, String> entry : entityMappings.entrySet()) {
 		//			System.out.println("\tTable=" + entry.getKey() + ", \tEntity=" + entry.getValue());
 		//		}
-
 	}
 
 	private static void scanIdColumns(Class entityClass) {
