@@ -10,11 +10,12 @@
 	template="template/ui.xhtml">
 
 	<ui:define name="body">
-		<hr />
 		<h4>Login</h4>
 		<h:form id="primeForm">
 			<p:inputText id="name" value="#{loginController.userName}"/>
+			<p/>
 			<p:password id="password" value="#{loginController.password}"/>
+			<p/>
 			<p:commandButton id="loginAction" value="Ingresar" action="#{loginController.goToHome}"/>
 		</h:form>
 	</ui:define>
