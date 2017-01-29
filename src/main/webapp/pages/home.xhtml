@@ -12,93 +12,144 @@
 	<ui:define name="body">
 		<h3>Data Migrator :: Panel de Control</h3>
 
-		<h:form id="mappingsForm">
+		<h:form
+			id="mainForm"
+			style="heigth: 5000px">
+			
+			<p:tabView>
+				<p:tab
+					title="Datos Importados"
+					titletip="Muestra los datos importados de Kiwi/MPFUsers">
 
-			<p:dataTable
-				id="tableMappings"
-				var="tableMapping"
-				value="#{homeImporterManagedBean.mpfusersTMList}"
-				style="width:100%; height=2000px;"
-				rows="5"
-				paginator="true"
-				selection="singleMode">
+					<h:form id="importerForm">
+						<p:dataTable
+							id="importTable"
+							var="importTable"
+							value="#{homeImporterManagedBean.dataImported}"
+							style="width:100%; height=2000px;"
+							rows="15"
+							paginator="true"
+							selection="single">
 
-				<f:facet name="header">
-			           Mapeo de tablas
-			    </f:facet>
-				<p:column
-					headerText="Tabla"
-					style="width:200px">
-					<h:outputText value="#{tableMapping.tableName}" />
-				</p:column>
-				<p:column
-					headerText="Entity"
-					style="width:500%">
-					<h:outputText value="#{tableMapping.className}" />
-				</p:column>
-				<p:column
-					headerText="BB.DD."
-					style="width:100px">
-					<h:outputText value="#{tableMapping.dbName}" />
-				</p:column>
-				<p:column
-					headerText="ID Column"
-					style="width:100%">
-					<h:outputText value="#{tableMapping.idColumnName}" />
-				</p:column>
-				<p:column
-					headerText="ID Column Type"
-					style="width:100%">
-					<h:outputText value="#{tableMapping.idColumnType}" />
-				</p:column>
-				<f:facet name="footer">
-					<p:commandButton
-						id="importAction"
-						value="Regenerar mapeos"
-						action="#{homeImporterManagedBean.generateMappings}" />
-				</f:facet>
+							<f:facet name="header">
+								<p:outputPanel>
+									<h:outputText value="Buscar: " />
+									<p:inputText
+										id="globalFilter"
+										onkeyup="PF('carsTable').filter()"
+										style="width:250px; right:5%;"
+										placeholder="Nombre de la tabla" />
+								</p:outputPanel>
+							</f:facet>
 
-			</p:dataTable>
-		</h:form>
+							<p:column
+								filterBy="#{importTable.dbName}"
+								headerText="Database"
+								filterMatchMode="in"
+								style="width:150px">
+								<f:facet name="filter">
+									<p:selectCheckboxMenu
+										label="DB Name"
+										onchange="PF('importTable').filter()"
+										panelStyle="width:150px"
+										scrollHeight="150">
+										<f:selectItems value="#{homeImporterManagedBean.fullDBList}" />
+									</p:selectCheckboxMenu>
+								</f:facet>
+								<h:outputText value="#{importTable.dbName}" />
+							</p:column>
+							<p:column
+								filterBy="#{importTable.tableName}"
+								headerText="Tabla"
+								filterMatchMode="in"
+								style="width:250px">
+								<f:facet name="filter">
+									<p:selectCheckboxMenu
+										label="Table name"
+										onchange="PF('importTable').filter()"
+										panelStyle="width:200px"
+										scrollHeight="150">
+										<f:selectItems value="#{homeImporterManagedBean.fullTableList}" />
+									</p:selectCheckboxMenu>
+								</f:facet>
+								<h:outputText value="#{importTable.tableName}" />
+							</p:column>
+							<p:column
+								headerText="Información"
+								style="width:500px">
+								<h:outputText value="#{importTable.informacion}" />
+							</p:column>
+							<p:column
+								headerText="Fecha"
+								style="width:150px">
+								<h:outputText value="#{importTable.creationDate}" />
+							</p:column>
 
-		<h:form id="importerForm">
-			<p:dataTable
-				id="importTable"
-				var="importTable"
-				value="#{homeImporterManagedBean.dataImported}"
-				style="width:100%; height=2000px;"
-				rows="5"
-				paginator="true"
-				selection="single">
+							<f:facet name="footer">
+								<p:commandButton
+									id="importAction"
+									value="Importar"
+									action="#{homeImporterManagedBean.importDbInfo}" />
+							</f:facet>
 
-				<f:facet name="header">
-			           Últimos datos importados
-			    </f:facet>
-				
-				<p:column
-					headerText="Tabla"
-					style="width:200px">
-					<h:outputText value="#{importTable.tableName}" />
-				</p:column>
-				<p:column
-					headerText="Información"
-					style="width:500%">
-					<h:outputText value="#{importTable.informacion}" />
-				</p:column>
-				<p:column
-					headerText="Fecha"
-					style="width:100%">
-					<h:outputText value="#{importTable.creationDate}" />
-				</p:column>
+						</p:dataTable>
+					</h:form>
 
-				<f:facet name="footer">
-					<p:commandButton
-						id="importAction"
-						value="Importar"
-						action="#{homeImporterManagedBean.importDbInfo}" />
-				</f:facet>
+				</p:tab>
+				<p:tab
+					title="Mapeo de Entidades"
+					titletip="Muestra el mapeo correspondiente a las tablas de Kiwi/MPFUsers">
+					<h:form
+						id="mappingsForm"
+						width="200px">
 
-			</p:dataTable>
+						<p:dataTable
+							id="tableMappings"
+							var="tableMapping"
+							value="#{homeImporterManagedBean.mpfusersTMList}"
+							style="width:100% height=2000px;"
+							rows="15"
+							paginator="true"
+							selection="singleMode">
+
+							<f:facet name="header">
+							</f:facet>
+							<p:column
+								headerText="Tabla"
+								style="width:200px">
+								<h:outputText value="#{tableMapping.tableName}" />
+							</p:column>
+							<p:column
+								headerText="Entity"
+								style="width:500%">
+								<h:outputText value="#{tableMapping.className}" />
+							</p:column>
+							<p:column
+								headerText="BB.DD."
+								style="width:100px">
+								<h:outputText value="#{tableMapping.dbName}" />
+							</p:column>
+							<p:column
+								headerText="ID Column"
+								style="width:100%">
+								<h:outputText value="#{tableMapping.idColumnName}" />
+							</p:column>
+							<p:column
+								headerText="ID Column Type"
+								style="width:100%">
+								<h:outputText value="#{tableMapping.idColumnType}" />
+							</p:column>
+							<f:facet name="footer">
+								<p:commandButton
+									id="importAction"
+									value="Regenerar mapeos"
+									action="#{homeImporterManagedBean.generateMappings}" />
+							</f:facet>
+						</p:dataTable>
+					</h:form>
+				</p:tab>
+			</p:tabView>
+
 		</h:form>
 
 	</ui:define>

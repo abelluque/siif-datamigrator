@@ -48,7 +48,6 @@ public class DataImporterServiceImpl implements DataImporterService {
 	public DataImporterServiceImpl() {
 
 		super();
-
 		//	initMappedClasses();
 	}
 
@@ -65,13 +64,8 @@ public class DataImporterServiceImpl implements DataImporterService {
 		if (mpfUsersMappedClasses == null) {
 
 			mpfUsersMappedClasses = new HashMap<String, String>();
-			System.out.println("\n\n  Obtengo los mapeos de " + EntityPackageName.MPF_USERS.getDbName());
 
-			//		mpfUsersMappedClasses.put("aux_apellidos", "AuxApellido");
-			//		mpfUsersMappedClasses.put("aux_nombres_fem", "AuxNombresFem");
-			//		mpfUsersMappedClasses.put("cat_value_list", "CatValueList");
-			//		mpfUsersMappedClasses.put("avi_servers", "AviServer");
-			//		mpfUsersMappedClasses.put("alm_almacenes", "AlmAlmacen");
+			System.out.println("\n\n  Obtengo los mapeos de " + EntityPackageName.MPF_USERS.getDbName());
 			mapeos = mappingService.findByDBName(EntityPackageName.MPF_USERS.getDbName());
 
 			for (TableMapping tableMapping : mapeos) {

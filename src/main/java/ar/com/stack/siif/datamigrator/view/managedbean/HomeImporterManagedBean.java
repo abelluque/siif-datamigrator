@@ -29,6 +29,8 @@ import ar.com.stack.siif.datamigrator.model.services.TableMappingsService;
 @ViewScoped
 public class HomeImporterManagedBean implements Serializable {
 
+	private List<String> fullTableList;
+	private List<String> fullDBList;
 	private Collection<TableMapping> mpfusersTMList;
 	private Collection<DataImport> dataImported;
 
@@ -61,6 +63,19 @@ public class HomeImporterManagedBean implements Serializable {
 
 		tablesToImport = new ArrayList<>();
 		dataImported = dataImporterService.findDataImported(EntityPackageName.MPF_USERS.getDbName(), null);
+		
+		fullDBList = new ArrayList<String>();
+		fullTableList = new ArrayList<String>();
+
+		for (DataImport dataImport : dataImported) {
+			fullTableList.add(dataImport.getTableName());
+			
+			String dbName = dataImport.getDbName();
+			if (!fullDBList.contains(dbName)) {
+				fullDBList.add(dbName);
+			}
+		}
+		
 	}
 
 	/**
@@ -148,5 +163,13 @@ public class HomeImporterManagedBean implements Serializable {
 			dataImporterService.importTableData(dataBaseName, tableName);
 		}
 
+	}
+	
+	public List<String> getFullTableList(){
+		return fullTableList;
+	}
+	
+	public List<String> getFullDBList(){
+		return fullDBList;
 	}
 }

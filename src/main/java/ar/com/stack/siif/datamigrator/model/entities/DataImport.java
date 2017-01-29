@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 
 @Entity
 @Table(name = "Data_Import", schema = "siif")
-@NamedQueries({ @NamedQuery(name = DataImport.findAll, query = "SELECT e FROM DataImport e ") })
+@NamedQueries({ @NamedQuery(name = DataImport.findAll, query = "SELECT e FROM DataImport e ORDER BY e.dbName, e.tableName ") })
 public class DataImport implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -78,11 +78,11 @@ public class DataImport implements Serializable {
 		this.id = id;
 	}
 
-	public String getDatabaseName() {
+	public String getDbName() {
 		return dbName;
 	}
 
-	public void setDatabaseName(String databaseName) {
+	public void setDbName(String databaseName) {
 		this.dbName = databaseName;
 	}
 
