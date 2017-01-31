@@ -74,10 +74,10 @@ public class TableMappingsServiceImpl implements TableMappingsService {
 	}
 	
 	@Override
-	public Collection<TableMapping> findByDBName(String dbName) {
+	public List<TableMapping> findByDBName(String dbName) {
 
 		System.out.println("Ejecutando el findByDBName de TableMappingsServiceImpl !!!! ");
-		Collection<TableMapping> mapeos = new ArrayList<TableMapping>();
+		List<TableMapping> mapeos = new ArrayList<TableMapping>();
 		
 		Query query = siifEntityManager.createNamedQuery(TableMapping.findByDBName);
 		query.setParameter("dbName", dbName);

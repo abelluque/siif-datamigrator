@@ -31,8 +31,8 @@ public class HomeImporterManagedBean implements Serializable {
 
 	private List<String> fullTableList;
 	private List<String> fullDBList;
-	private Collection<TableMapping> mpfusersTMList;
-	private Collection<DataImport> dataImported;
+	private List<TableMapping> mpfusersTMList;
+	private List<DataImport> dataImported;
 
 	private static final long serialVersionUID = 1L;
 	private ClassPathXmlApplicationContext appContext;
@@ -68,14 +68,19 @@ public class HomeImporterManagedBean implements Serializable {
 		fullTableList = new ArrayList<String>();
 
 		for (DataImport dataImport : dataImported) {
-			fullTableList.add(dataImport.getTableName());
+			String tableName = dataImport.getTableName();
+			if (!fullTableList.contains(tableName)) {
+				fullTableList.add(tableName);
+			}
 			
 			String dbName = dataImport.getDbName();
 			if (!fullDBList.contains(dbName)) {
 				fullDBList.add(dbName);
 			}
 		}
-		
+	
+		System.out.println("FullTableList = " + fullTableList.toString());
+		System.out.println("FullDBList = " + fullDBList.toString());
 	}
 
 	/**
@@ -96,7 +101,7 @@ public class HomeImporterManagedBean implements Serializable {
 		return mpfusersTMList;
 	}
 
-	public void setMpfusersTMList(Collection<TableMapping> mpfusersTMList) {
+	public void setMpfusersTMList(List<TableMapping> mpfusersTMList) {
 		this.mpfusersTMList = mpfusersTMList;
 	}
 
@@ -104,7 +109,7 @@ public class HomeImporterManagedBean implements Serializable {
 		return dataImported;
 	}
 
-	public void setDataImported(Collection<DataImport> dataImported) {
+	public void setDataImported(List<DataImport> dataImported) {
 		this.dataImported = dataImported;
 	}
 

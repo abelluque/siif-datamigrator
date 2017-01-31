@@ -22,11 +22,12 @@
 					titletip="Muestra los datos importados de Kiwi/MPFUsers">
 
 					<h:form id="importerForm">
+						
 						<p:dataTable
-							id="importTable"
 							var="importTable"
 							value="#{homeImporterManagedBean.dataImported}"
-							style="width:100%; height=2000px;"
+							widgetVar="infoImportedTable"
+							style="width:100%"
 							rows="15"
 							paginator="true"
 							selection="single">
@@ -36,7 +37,7 @@
 									<h:outputText value="Buscar: " />
 									<p:inputText
 										id="globalFilter"
-										onkeyup="PF('carsTable').filter()"
+										onkeyup="PF('infoImportedTable').filter()"
 										style="width:250px; right:5%;"
 										placeholder="Nombre de la tabla" />
 								</p:outputPanel>
@@ -50,7 +51,7 @@
 								<f:facet name="filter">
 									<p:selectCheckboxMenu
 										label="DB Name"
-										onchange="PF('importTable').filter()"
+										onchange="PF('infoImportedTable').filter()"
 										panelStyle="width:150px"
 										scrollHeight="150">
 										<f:selectItems value="#{homeImporterManagedBean.fullDBList}" />
@@ -66,7 +67,7 @@
 								<f:facet name="filter">
 									<p:selectCheckboxMenu
 										label="Table name"
-										onchange="PF('importTable').filter()"
+										onchange="PF('infoImportedTable').filter()"
 										panelStyle="width:200px"
 										scrollHeight="150">
 										<f:selectItems value="#{homeImporterManagedBean.fullTableList}" />
