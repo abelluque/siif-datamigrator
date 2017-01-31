@@ -15,14 +15,14 @@
 		<h:form
 			id="mainForm"
 			style="heigth: 5000px">
-			
+
 			<p:tabView>
 				<p:tab
 					title="Datos Importados"
 					titletip="Muestra los datos importados de Kiwi/MPFUsers">
 
 					<h:form id="importerForm">
-						
+
 						<p:dataTable
 							var="importTable"
 							value="#{homeImporterManagedBean.dataImported}"
@@ -40,6 +40,10 @@
 										onkeyup="PF('infoImportedTable').filter()"
 										style="width:250px; right:5%;"
 										placeholder="Nombre de la tabla" />
+									<p:commandButton
+										id="importAction"
+										value="Importar"
+										action="#{homeImporterManagedBean.importDbInfo}" />
 								</p:outputPanel>
 							</f:facet>
 
@@ -87,10 +91,6 @@
 							</p:column>
 
 							<f:facet name="footer">
-								<p:commandButton
-									id="importAction"
-									value="Importar"
-									action="#{homeImporterManagedBean.importDbInfo}" />
 							</f:facet>
 
 						</p:dataTable>
